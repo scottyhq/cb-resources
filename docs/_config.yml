@@ -22,8 +22,8 @@ title: Cloudbank Resources
 email: help@cloudbank.org
 description: >- # this means to ignore newlines until "baseurl:"
   Educational resources for running research and education projects in the cloud, provided by CloudBank 
-baseurl: "/naomila/cb-resources" # the subpath of your site, e.g. /blog
-url: "https://staff.washington.edu" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/cb-resources" # the subpath of your site, e.g. /blog
+url: "https://cloudbank-project.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  cloudbank-project
 
 # Build settings
