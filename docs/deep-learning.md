@@ -40,19 +40,15 @@ There are two routes to go for serving notebooks from the cloud:
 
 - **Notebook services**
 
-    Most cloud platforms provide a notebook service that allows you to upload your python notebooks and work with them through your browser without any further configuration. The biggest benefit of these services are the cost savings; they have the potential to be [TODO: figure] cheaper.
+    Most cloud platforms provide a notebook service that allows you to upload your python notebooks and work with them through your browser without any further configuration. These services are usually packaged within a larger Machine Learning-focused workspace, that tends to be cost-free to set up and intended to be an onramp to platform-specific ML tools. That said, the biggest benefit of these services are the cost savings; they have the potential to be [TODO: figure] cheaper.
 
     Guides:
 
-    - AWS: [[link]](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-setup-working-env.html)
+    - AWS: [Notebooks with Sagemaker](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-setup-working-env.html)
 
-        On AWS, your notebooks are housed within an Amazon Sagemaker workspace. The workspace is a cost-free control panel for doing machine learning work, though running cells in the notebooks will incur a cost and you can select the grade/expense of machine required.
+    - Azure: [Notebooks with Azure Machine Learning Studio](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks)
 
-    - Azure: [[link]](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks)
-
-        On Azure, your notebooks are housed within an Azure Machine Learning workspace. The workspace is a cost-free control panel for doing machine learning work, though running cells in the notebooks will incur a cost and you can select the grade/expense of machine required.
-
-    - GCP: TODO colab?
+    - GCP: [Notebooks with Jupyterlab](https://cloud.google.com/notebooks). Google also offers a separate service, [Google Colab](https://colab.research.google.com/notebooks/), which currently has a resource-limited free tier and a more feature-rich pro tier.
 
     - IBM: TODO
 
@@ -74,7 +70,6 @@ There are two routes to go for serving notebooks from the cloud:
     - IBM: TODO
 
 
-
 ### Containers
 
 Cloud platforms often provide services to run Docker containers without needing to set up a full virtual machine to do so (this is one of the common things referred to by "serverless" computing). Because Docker containers are often used for running web app infrastructure, this is what cloud services and documentation are geared towards. That said, they can just as well be used for long-running machine learning jobs. Cloud platforms are also beginning to offer ML-focused container services as well, usually under different names than the generic container jazz.
@@ -85,7 +80,7 @@ Guides:
 
 - Azure: [Train a model by using a custom Docker image](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-with-custom-image)
 
-- GCP: TODO
+- GCP: [AI Platform Containers Overview](https://cloud.google.com/ai-platform/training/docs/containers-overview)
 
 - IBM: TODO
 
