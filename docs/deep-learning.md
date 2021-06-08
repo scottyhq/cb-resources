@@ -22,7 +22,7 @@ The major pieces of instracture to think about for such a workload include:
 
 - **Dataset storage**
 
-    In order to compute effectively, cloud platforms need your data sets to be stored in-cloud alongside your code. The most straight-forward way to do this is to use your cloud platform's file storage service, which behaves much like Google Drive or Dropbox. To dramatically reduce storage cost, you can instead use your platform's *object* storage service. This indexes your data into a way that is internally more efficient, but slightly less convenient to access.
+    In order to compute effectively, cloud platforms need your data sets to be stored in-cloud alongside your code. The most straight-forward way to do this is to use your cloud platform's file storage service, which behaves much like Google Drive or Dropbox. To reduce storage cost by a factor of 10, you can instead use your platform's *object* storage service. This stores your data in the cloud in a way that is internally more efficient, but requires you to write some code to store/retrieve it.
 
     See [&sect;Storage](#storage) for resources on getting your data into file or object storage accounts.
 
@@ -40,7 +40,7 @@ There are two routes to go for serving notebooks from the cloud:
 
 - **Notebook services**
 
-    Most cloud platforms provide a notebook service that allows you to upload your python notebooks and work with them through your browser without any further configuration. These services are usually packaged within a larger Machine Learning-focused workspace, that tends to be cost-free to set up and intended to be an onramp to platform-specific ML tools. That said, the biggest benefit of these services are the cost savings; they have the potential to be [TODO: figure] cheaper.
+    Most cloud platforms provide a notebook service that allows you to upload your python notebooks and work with them through your browser without any further configuration. These services are usually packaged within a larger Machine Learning-focused workspace, that tends to be cost-free to set up and intended to be an onramp to platform-specific ML tools.
 
     Guides:
 
@@ -87,7 +87,40 @@ Guides:
 
 ### Storage
 
-TODO
+Broadly, cloud platforms provide two different kinds of data storage service:
+
+- **File storage**
+
+    File storage services behave like a traditional network drive you can mount to your computer: they contain files stored in a directory structure, which can be manipulated using traditional file managers and UNIX commands. To access files from your code, you use the standard methods you're used to.
+
+    The downside of these services is that they tend to cost a factor of 10 more than the equivalent amount of object storage, since what you gain in ease of use the cloud platform loses in behind-the-scenes flexibility.
+
+    Guides:
+
+    - AWS: TODO
+
+    - Azure: TODO
+
+    - GCP: TODO
+
+    - IBM: TODO
+
+
+- **Object storage**
+
+    Object storage services ask you to upload and download files individually through a web API, and don't provide a directory structure to organize those files. The way this generally looks for your work is you initially write a script to upload files from your local machine into object storage en-masse, and then when you want to use said files in the cloud you use a language-specific library to load them.
+
+    Although this requires extra work on your part, if you can build it into your workflow you can generally reduce your storage costs by at least a factor of 10.
+    
+    Guides:
+
+    - AWS: TODO
+
+    - Azure: [Azure Blob storage with Python](https://docs.microsoft.com/en-us/azure/developer/python/azure-sdk-example-storage-use)
+
+    - GCP: TODO
+
+    - IBM: TODO
 
 ### Deployment
 
