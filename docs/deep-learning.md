@@ -2,7 +2,10 @@
 layout: tutorial
 title: Deep Learning in the cloud
 icon: "static/learning.png"
+navpath: Technical Resources/Deep Learning
 ---
+
+# Deep Learning
 
 The cloud is particularly well suited to training neural networks (or any other form of ML model); it can provide as much computational power as you need, when you need it, and you pay for only what you use. To read about success stories, check out [&sect;Case Studies](#case-studies). To learn more, read on.
 
@@ -128,4 +131,4 @@ TODO
 
 ## Case Studies
 
-- https://www.cloudbank.org/training/use-case/supervised-machine-learning
+- [Deep Learning on AWS: How artificial intelligence helps monitor forest dryness](https://www.cloudbank.org/training/use-case/supervised-machine-learning)

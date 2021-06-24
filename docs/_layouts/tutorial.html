@@ -12,26 +12,54 @@
         body {
             font-family: sans-serif;
         }
-        h1, h2, h3, h4, h5 {
+        h1, h2, h3,
+        h4, h5, h6 {
             font-family: 'Fira Sans', Arial, sans-serif;
-            color: #264F78;
+            color: #0288d0;
+        }
+        h1 a, h2 a, h3 a,
+        h4 a, h5 a, h6 a {
+            display: none;
+            text-decoration: none;
+        }
+        h1:hover a, h2:hover a, h3:hover a,
+        h4:hover a, h5:hover a, h6:hover a {
+            display: inline;
+            text-decoration: none;
         }
         a {
             text-decoration: none;
-            color:  #00F;
+            color:  #0288d0;
         }
         a:visited {
-            color:  #008;
+            color:  #0178c0;
         }
         a:hover {
             text-decoration: underline;
-            color:  #33F;
+            color:  #1298e0;
         }
+        .body-tray {
+            display: flex;
+        }
+        .sidebar {
+            width: 16em;
+        }
+        .sidebar-content {
+            position: fixed;
+        }
+        .toc {
+            margin-top: 3em;
+            margin-bottom: 3em;
+            padding-left: 2em;
+        }
+        .toc ul{
+            padding-left: 1em;
+        }
+
         .content {
             position: relative;
-            top:  -3em;
-            left:  12em;
-            width: 80%;
+            width: 60%;
+            top: -3em;
         }
         .header {
             display:  flex;
@@ -45,14 +73,14 @@
 
             display:  flex;
             align-items: flex-end;
-            border-bottom: 5px #264F78 solid;
+            border-bottom: 5px #336699 solid;
         }
         .header .title {
             margin-left: .5em;
 
             font-family: 'Maven Pro', sans-serif;
             font-size: 3em;
-            color: #333;
+            color: #6C6C6C;
         }
 
         @keyframes slideInLeft {
@@ -70,7 +98,7 @@
             margin-bottom:  .3em;
             font-size:  1.5em; 
             
-            color: #777;
+            color: #999999;
 
             animation: .5s ease-out 0s 1 slideInLeft;           
         }
@@ -93,7 +121,7 @@
             filter: grayscale(100%);
         }
         .logo {
-            background-color: #264F78;
+            background-color: #336699;
             border-radius: 50%;
             padding: .5em;
             width: 10em;
@@ -110,15 +138,14 @@
         .icon {
             border-radius: 50%;
             width: 2em;
-            border: 6px #264F78 solid;
+            border: 6px #0288d0 solid;
         }
         .side-button {
-            position:  fixed;
-            left: 4.5em;
-            top: 14em;
+            position: fixed;
+            left: 4em;
             z-index: 10;
 
-            background-color: #264F78;
+            background-color: #0288d0;
             border-radius: 3em;
             padding: .5em;
             width: 3em;
@@ -147,18 +174,82 @@
             transition: width .5s;
         }
 
+        .icon-list {
+            columns: 2;
+            list-style-type: none;
+            margin-right: 20%;
+        }
+
+        .icon-list li {
+            /*display: inline-block;*/
+        }
+
+        .icon-list li img {
+            width: 4em;
+            border-radius: 50%;
+            border:  5px solid #0288d0;
+            margin: 1em;
+            vertical-align: middle;
+        }
+
+        .icon-list a:hover img {
+            border:  5px solid #0288d0;
+        }
+
+        .attribution {
+            font-style: italic;
+            font-size:  .8em;
+            color:  #888;
+        }
+
     </style>
 </head>
 <body>
-    <a id="feedback-link" href="https://docs.google.com/forms/d/e/1FAIpQLScgEnfSjSq6aJch0SmpUw5lPde8wNuGV8XzA4EefoUURasAhw/viewform" target="_blank">
-        <div class="side-button">
-            <img src="{{site.baseurl}}/static/feedback.png">
-            <div class="label">Feedback</div>
-        </div>
-    </a>
     <script>
-        base_url = "https://docs.google.com/forms/d/e/1FAIpQLScgEnfSjSq6aJch0SmpUw5lPde8wNuGV8XzA4EefoUURasAhw/viewform?usp=pp_url&entry.934828496=";
-        document.getElementById("feedback-link").href = base_url + encodeURIComponent(window.location.href) 
+
+        // TODO: instead of this, consider:
+        // http://imakewebthings.com/waypoints/guides/getting-started/
+        // https://stackoverflow.com/questions/16833328/detect-when-passing-anchor-point-in-jquery/16834362
+
+        // Scroll-adaptive code from:
+        // https://pqina.nl/blog/applying-styles-based-on-the-user-scroll-position-with-smart-css/
+        
+        // The debounce function receives our function as a parameter
+        const debounce = (fn) => {
+
+          // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+          let frame;
+
+          // The debounce function returns a new function that can receive a variable number of arguments
+          return (...params) => {
+            
+            // If the frame variable has been defined, clear it now, and queue for next frame
+            if (frame) { 
+              cancelAnimationFrame(frame);
+            }
+
+            // Queue our function call for the next frame
+            frame = requestAnimationFrame(() => {
+              
+              // Call our function and pass any params we received
+              fn(...params);
+            });
+
+          } 
+        };
+
+
+        // Reads out the scroll position and stores it in the data attribute
+        // so we can use it in our stylesheets
+        const storeScroll = () => {
+          document.documentElement.dataset.scroll = window.scrollY;
+        }
+
+        // Listen for new scroll events, here we debounce our `storeScroll` function
+        document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+
+        // Update scroll position for first time
+        storeScroll();
     </script>
     <div class="header">
         <a href="https://www.cloudbank.org">
@@ -169,17 +260,38 @@
         <div class="header-text">
             <a href="https://www.cloudbank.org">
             <div class="title">
-                <div style="display: inline; color: #264F78;">Cloud</div>Bank
+                <div style="display: inline; color: #336699;">Cloud</div>Bank
             </div>
             </a>
             <div class="subtitle">
-                &#x226B; <a href="{{site.baseurl}}">Resources</a> &#x226B; Patterns
+                {% assign navpath_nodes = page.navpath | split: "/" %}
+                {% for node in navpath_nodes %}
+                    &#x226B; <a href="{{ node | slugify }}.html">{{ node }}</a>
+                {% endfor %}
             </div>
         </div>
     </div>
-    <div class="content">
-        <h1>{{page.title}}</h1>
-        {{content}}
+    <div class="body-tray">
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div class="toc">
+                    {% include toc.html html=content %}
+                </div>
+                <a id="feedback-link" href="https://docs.google.com/forms/d/e/1FAIpQLScgEnfSjSq6aJch0SmpUw5lPde8wNuGV8XzA4EefoUURasAhw/viewform" target="_blank">
+                    <div class="side-button">
+                        <img src="{{site.baseurl}}/static/feedback.png">
+                        <div class="label">Feedback</div>
+                    </div>
+                </a>
+                <script>
+                    base_url = "https://docs.google.com/forms/d/e/1FAIpQLScgEnfSjSq6aJch0SmpUw5lPde8wNuGV8XzA4EefoUURasAhw/viewform?usp=pp_url&entry.934828496=";
+                    document.getElementById("feedback-link").href = base_url + encodeURIComponent(window.location.href) 
+                </script>
+            </div>
+        </div>
+        <div class="content">
+            {% include anchor_headings.html html=content anchorBody="&sect;" %}
+        </div>
     </div>
     <div class="footer">
         <a href="https://www.nsf.gov"><img src="https://www.cloudbank.org/files/file_fields/page/nsf-color.png"></a>
