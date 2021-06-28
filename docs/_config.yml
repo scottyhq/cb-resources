@@ -29,7 +29,7 @@ markdown: kramdown
 
 # Build settings
 # theme: minima
-theme: just-the-docs
+remote_theme: pmarsceill/just-the-docs
 color_scheme: cloudbank
 search_enabled: true
 heading_anchors: true
