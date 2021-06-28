@@ -1,0 +1,46 @@
+$link-color: $blue-000;
+$btn-primary-color: $blue-200;
+$base-button-color: $grey-dk-250;
+$body-heading-color: $blue-000;
+
+
+.icon-list {
+    list-style: none;
+    padding-left: 0px !important;
+    // columns: 2;
+}
+
+.icon-list a:not([class]) {
+    background-image: none !important;
+}
+
+.icon-list li::before {
+    content: "" !important;
+    margin: 0px;
+    /*display: inline-block;*/
+}
+
+.icon-list li img {
+    display: inline-block;
+    width: 4em;
+    border-radius: 50%;
+    border:  5px solid $btn-primary-color;
+    margin: 1em;
+    vertical-align: middle;
+}
+
+.icon-list a:hover img {
+    border:  5px solid $link-color;
+}
+
+.postscript {
+    text-align: center;
+}
+
+.postscript img {
+    filter: grayscale(1);
+}
+
+.postscript a:not([class]) {
+    background-image: none !important;
+}

@@ -28,7 +28,22 @@ github_username:  cloudbank-project
 markdown: kramdown
 
 # Build settings
-theme: minima
+# theme: minima
+theme: just-the-docs
+color_scheme: cloudbank
+search_enabled: true
+heading_anchors: true
+
+aux_links:
+  "Feedback":
+    - "https://docs.google.com/forms/d/e/1FAIpQLScgEnfSjSq6aJch0SmpUw5lPde8wNuGV8XzA4EefoUURasAhw/viewform"
+aux_links_new_tab: true
+
+permalink: pretty
+back_to_top: true
+back_to_top_text: "Back to top"
+logo: 'https://www.cloudbank.org/sites/default/files/file_fields/logo.png'
+
 plugins:
   - jekyll-feed
   - jemoji

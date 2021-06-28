@@ -1,7 +1,7 @@
 ---
-layout: tutorial
 title: Technical Resources
-navpath: Technical Resources
+has_children: true
+nav_order: 1
 ---
 
 # Technical Resources
@@ -13,12 +13,13 @@ Cloudbank's focus is on helping researchers and educators utilize the cloud as a
 Here are some of the most common patterns we see appear in research cloud infrastructure. Follow the links for guides on how to map this work onto cloud services.
 
 {: .icon-list}
-- ![Speed gauge icon](static/pattern-hpc.png) HPC
-- [![Circuit brain icon](static/pattern-ml.png) ML and Deep Learning](deep-learning.html)
-- ![IOT Cloud icon](static/pattern-iot.png) IOT
-- ![DNA strand icon](static/pattern-genom.png) Genomics
-- ![Hand holding atom icon](static/pattern-gateway.png)Science Gateways
-- ![Application icon](static/pattern-sw.png) Licensed software platforms
+- ![Speed gauge icon]({{site.baseurl}}/static/pattern-hpc.png) HPC
+- [![Circuit brain icon]({{site.baseurl}}/static/pattern-ml.png) ML and Deep Learning](patterns/deep-learning)
+- ![IOT Cloud icon]({{site.baseurl}}/static/pattern-iot.png) IOT
+- ![DNA strand icon]({{site.baseurl}}/static/pattern-genom.png) Genomics
+- ![Hand holding atom icon]({{site.baseurl}}/static/pattern-gateway.png)Science Gateways
+- ![Application icon]({{site.baseurl}}/static/pattern-sw.png) Licensed software platforms
+- ![Security icon]({{site.baseurl}}/static/pattern-security.png) Security-sensetive data
 
 ## Solutions
 
@@ -43,12 +44,3 @@ Although all cloud platforms offer roughly equivalent functionality, the exact t
 
 ---
 Cloudbank allows you to allocate your funds however you see fit across four major cloud vendors: [Amazon AWS](https://aws.amazon.com/products/), [Google GCP](https://cloud.google.com/products), [Microsoft Azure](https://azure.microsoft.com/en-us/services/) and [IBM Cloud](https://www.ibm.com/cloud).
----
-
-{: .attribution}
-Icons from the Noun Project:
-
-{: .attribution}
-- DNA by Start Up Graphic Design 
-- Brain, Science by Icongeek26
-- IoT, Software, speed by Adrien Coquet

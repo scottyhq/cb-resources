@@ -1,11 +1,13 @@
 ---
-layout: tutorial
 title: Deep Learning in the cloud
-icon: "static/learning.png"
-navpath: Technical Resources/Deep Learning
+parent: Design Patterns
+grand_parent: Technical Resources
 ---
 
 # Deep Learning
+
+- Table of Contents
+{:toc}
 
 The cloud is particularly well suited to training neural networks (or any other form of ML model); it can provide as much computational power as you need, when you need it, and you pay for only what you use. To read about success stories, check out [&sect;Case Studies](#case-studies). To learn more, read on.
 
