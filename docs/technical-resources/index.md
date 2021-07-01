@@ -26,7 +26,7 @@ Here are some of the most common patterns we see appear in research cloud infras
 
 {: .icon-list}
 - Containers
-- HPC
+- [HPC](https://github.com/cloudbank-project/hpc)
 
 ## Terms and Jargon
 
@@ -41,7 +41,3 @@ Although all cloud platforms offer roughly equivalent functionality, the exact t
     A glossary of common terms that you'll see across clouds
 
 
-
-
----
-Cloudbank allows you to allocate your funds however you see fit across four major cloud vendors: [Amazon AWS](https://aws.amazon.com/products/), [Google GCP](https://cloud.google.com/products), [Microsoft Azure](https://azure.microsoft.com/en-us/services/) and [IBM Cloud](https://www.ibm.com/cloud).
