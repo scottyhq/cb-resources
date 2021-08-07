@@ -5,7 +5,7 @@ grand_parent: Technical Resources
 ---
 
 * [Ok now what is the plan?](#what-is-the-plan)
-    * (and pssst: [How to simplify the bash terminal display](https://robfatland.github.io/greenandblack/)?)
+    * (and while we are it it: [How does one simplify the bash terminal display](https://robfatland.github.io/greenandblack/)?)
 * [Why does this require instructions?](#why-instructions-are-necessary)
 * [Let's do it!](#walk-through)
 
@@ -26,31 +26,37 @@ where we will move information back and forth securely using an **ssh tunnel**.
 
 At a high level this process is just configuring a research computer. Because it is on the 
 cloud there is some extra vocabulary involved and some extra steps, starting with securing 
-a cloud account, and continuing through a progression of steps. A summary of this progression 
-goes like this: 
+a cloud account. 
 
 
-1. A researcher decides to work on the public cloud; and gains access...
-    * Through Cloudbank the mechanism is a *billing account*
-    * The term 'subscription' is also commonly used
-2. The researcher starts up a dedicated VM and logs in
-    * The VM begins as a blank slate, just running Ubuntu Linux
-    * The example below happens to use the AWS cloud
-3. The researcher configures the VM as a Jupyter Lab notebook server supporting a Python 3 kernel
+* A researcher decides to work on the public cloud; and gains access...
+    * Cloud accounts commonly use the terms 'account' or 'subscription'
+    * CloudBank uses the term *billing account*
+* The researcher starts up a dedicated VM and logs in
+    * The VM begins as a blank slate, just Ubuntu Linux
+    * The walk-through given below happens to use the AWS cloud
+* The researcher configures the VM as a Jupyter Lab notebook server supporting a Python 3 kernel
     * Other useful tools / libraries / packages / datasets are installed as well
     * The researcher tests the Jupyter Lab server by logging in using a browser
         * This makes use of a secure connection called an *ssh tunnel*
-4. The researcher uses cloud management tools to create an ***image*** of the VM on the cloud
+* The researcher uses cloud management tools to create an ***image*** of the VM on the cloud
     * Unlike a container this image is specific to the cloud used; it is not transferrable between clouds
-5. The researcher terminates / deletes / destroys the VM
-    * But the stored ***image*** persists and can used to start up a new VM
+* The researcher terminates / deletes / destroys the VM
+    * But the stored ***image*** persists and can be used to start up a new VM
 
 
-Starting a VM using a stored image means you have a choice of which VM to use. You can use a smaller
+A VM may be started and stopped; and you pay for it by the hour only when it is Started.
+Being Stopped is like having the power turned off: You can resume using it without loss of data.
+However: Terminating a VM as the name implies means that it no longer exists. 
+
+
+Starting a VM using a stored image recreates the machine state when that image was saved.
+When you do this you have a choice of which VM to use. You can use a smaller
 cheaper VM if you do not need a lot of computing power; say you just want to write and test some code. 
-Or you can choose a powerful (more expensive) VM if you have some heavy computations to do.
+Or you can choose a powerful (more expensive) VM if you have some heavy computation to do.
 
-Notice that you may start many VMs from a single image. Your collaborators may use these images
+
+Notice that you may start many *VMs* from a single *image*. Your collaborators may use this image
 to start their own VMs as well. This means that customized work environments are easier to replicate
 and share.
 
@@ -69,8 +75,8 @@ and share.
             * Cautionary tale: An Access Key file for your cloud account can be used to automatically run tasks
                 * This means that someone with your access key can easily spend $15,000 in one hour mining bitcoin
                 * ***Do not place credentials on Virtual Machines that will be used to create images per this walk-through***
-* Virtual Machines (VM / VM instance / "EC2" on AWS, "Google Compute Engine" on GCP, "VM" on Azure)
-    * There are a wide variety of instance types available for us to choose from.
+* Virtual Machines (VM / VM instance / "EC2" on AWS, "Google Compute Engine" on GCP, "Azure VM" on Azure)
+    * There are a wide variety of instance types to choose from.
         * Any given instance type will have associated memory, processing power and storage (see below).
         * The cost of the instance -- per hour -- varies with these characteristics.
         * On the AWS console you select the EC2 service and then Launch Instance
@@ -91,9 +97,6 @@ and share.
         * Use EC2 EBS block storage as persistent disk space when you need to keep data
         * Use AWS EFS (Elastic File System) as storage shared by multiple instances; analogous to UNIX NFS
         * Use AWS S3 Object Storage to store any (large) amounts of data cheaply, independent of EC2 resources
-
-
-#### Start a Virtual Machine (VM) and configure it
 
 
 #### Start up a VM from the AWS console
@@ -133,8 +136,7 @@ and share.
 #### On the EC2 instance (VM) mount any added storage drives
 
 
->Intermezzo: If you use the `vim` text editor and would like to turn off color-coded text: Say `:syntax off` from Escape mode; 
->or append `syntax off` to `~/.vimrc`. For more see [this link on disabling colorized text](https://robfatland.github.io/greenandblack/).
+
 
 
 * Assumes you are logged on with a bash shell
