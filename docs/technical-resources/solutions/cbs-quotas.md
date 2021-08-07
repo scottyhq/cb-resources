@@ -1,3 +1,9 @@
+---
+title: Review and increase quotas
+parent: Solutions
+grand_parent: Technical Resources
+---
+
 # CloudBank Solution: Quotas
 
 When you open a new account with a provider (AWS, GCP, Azure etc) there are typically 
