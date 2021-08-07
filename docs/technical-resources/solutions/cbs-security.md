@@ -1,5 +1,5 @@
 ---
-title: CloudBank Solution to secure data
+title: Secure data
 parent: Solutions
 grand_parent: Technical Resources
 ---
