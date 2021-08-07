@@ -1,5 +1,5 @@
 ---
-title: HPC
+title: High Performance Computing
 layout: redirect
 parent: Solutions
 grand_parent: Technical Resources
