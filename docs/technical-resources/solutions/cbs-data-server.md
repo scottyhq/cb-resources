@@ -1,5 +1,5 @@
 ---
-title: CloudBank Solution to serve data using an Application Programming Interface (API)
+title: Serve data using an Application Programming Interface (API)
 parent: Solutions
 grand_parent: Technical Resources
 ---
