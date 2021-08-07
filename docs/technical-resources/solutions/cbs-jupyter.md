@@ -1,5 +1,5 @@
 ---
-title: CloudBank Solution to use a cloud virtual machine as a Jupyter notebook server
+title: Use a cloud virtual machine as a Jupyter notebook server
 parent: Solutions
 grand_parent: Technical Resources
 ---
