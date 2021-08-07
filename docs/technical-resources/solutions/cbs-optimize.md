@@ -1,5 +1,5 @@
 ---
-title: CloudBank Solution to optimize cloud spend
+title: Optimize cloud spend
 parent: Solutions
 grand_parent: Technical Resources
 ---
