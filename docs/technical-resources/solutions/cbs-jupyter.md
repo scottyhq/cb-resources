@@ -11,53 +11,54 @@ grand_parent: Technical Resources
 
 ### What is the plan?
 
-Learning about how to compute on the cloud includes understanding **machine images**. So this CloudBank solution
-will serve two purposes: It will introduce you to machine images and at the same time show you how to use a 
-cloud virtual machine (herein **VM**) like a traditional desktop... potentially quite a powerful one.
+Learning about how to compute on the cloud includes understanding **machine images**:
+Snapshots of the operating system including customization, code and data. This CloudBank solution
+serves two purposes: It introduce machine images and also demonstrates using a 
+cloud virtual machine (herein **VM**) as a traditional desktop... potentially quite a powerful one.
 
 
-Since Jupyter notebooks are in common use, our aim will be to operate the cloud VM
-as a Jupyter notebook server. The interface will appear in our local machine's browser 
-where we will move information back and forth securely using an **ssh tunnel**.
+Since [Jupyter notebooks](https://jupyter.org) are in common use, our aim will be to operate the cloud VM
+as a Jupyter notebook server. The interface will appear in our local machine's browser. 
+We move information back and forth securely using an **ssh tunnel**.
 
 
 ### Why instructions are necessary
 
 
-At a high level this process is just configuring a research computer. Because it is on the 
+At a high level we are configuring a research computer. Because it is on the 
 cloud there is some extra vocabulary involved and some extra steps, starting with securing 
-a cloud account. Here's the narrative:
+a cloud account. There is enough complexity to merit a walk-through. Here's the narrative:
 
 
 * A researcher decides to work on the public cloud; and gains access...
-    * Cloud accounts commonly use the terms 'account' or 'subscription'
+    * Cloud access agreements commonly are called 'accounts' or 'subscriptions'
     * CloudBank uses the term *billing account*
-* The researcher starts up a dedicated VM and logs in
+* Using a browser interface the researcher starts a dedicated cloud VM and logs in
     * The VM begins as a blank slate, just Ubuntu Linux
     * The walk-through given below happens to use the AWS cloud
 * The researcher configures the VM as a Jupyter Lab notebook server supporting a Python 3 kernel
     * Other useful tools / libraries / packages / datasets are installed as well
-    * The researcher tests the Jupyter Lab server by logging in using a browser
+    * The researcher tests the Jupyter Lab server by connecting via browser
         * This makes use of a secure connection called an *ssh tunnel*
 * The researcher uses cloud management tools to create an ***image*** of the VM on the cloud
     * Unlike a container this image is specific to the cloud used; it is not transferrable between clouds
-* The researcher terminates / deletes / destroys the VM
-    * But the stored ***image*** persists and can be used to start up a new VM
+* The researcher Terminates (deletes) the VM: It is no longer available
+    * The stored ***image*** persists and can be used to start up a new VM
 
 
 A VM may be in two states: Started and Stopped. You pay for it by the hour only when it is Started.
 Stopped is like having the power turned off: You can resume using it later without loss of data.
-However: Terminating a VM means it no longer exists: Everything is gone. 
+Terminating a VM means it no longer exists: Everything is gone. 
 
 
-Starting a VM using a stored image recreates the machine state when that image was saved.
-When you do this you have a choice of which VM to use. You can use a smaller
+Starting a VM using a stored image recreates the machine in its state when the image was created.
+When you do this you have a choice of which VM to use for the image. You can use a smaller
 cheaper VM if you do not need a lot of computing power; say you just want to write and test some code. 
 Or you can choose a powerful (more expensive) VM if you have some heavy computation to do.
 
 
-Notice that you may start many *VMs* from a single *image*. Your collaborators may use this image
-to start their own VMs as well. This means that customized work environments are easier to replicate
+Notice that you may start many *VMs* from a single *image*. Your collaborators may use an image
+to start their own VMs as well. This means that customized work environments are easy to replicate
 and share.
 
 
@@ -86,7 +87,7 @@ and share.
                 * It can be challenging to find instance cost
                 * Enter `cost <instance-type> <region>` in a browser search bar; for example:
                     * `cost m5ad.4xlarge oregon` shows $1.00 per hour as the first result
-* Storage
+* Storage: AWS-specific details
     * Disk drive version 1: Elastic Block Storage (EBS) is persistent storage, acting as a disk drive + file system
     * AWS also supports temporary disk storage through the [*instance store*](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
     * It is essential to distinguish between **Elastic Block Strage (EBS) volumes** and **(ephemeral) instance store volumes**
@@ -103,12 +104,10 @@ and share.
 
 
 * Log on to the AWS console and select Services > Compute > EC2 > Launch Instance
-    * This could also be done using the Command Line Interface (CLI) to AWS
-    * This could also be done using the AWS API through a package such as `boto3`
-* Run through the launch Wizard; here are some details from our example run
-    * The image selected will be 64 but x86 Ubuntu Server (username = `ubuntu`)
-        * Notice that this is a "bare machine" with just the Ubuntu operating system
-    * The VM selected is an `m5ad.4xlarge` which $1.00 / hour in Oregon at time of writing
+    * This may also be done with the Command Line Interface (CLI) to AWS or an API such as `boto3`
+* Run through the launch Wizard; here are some details by example:
+    * 64 bit x86 Ubuntu Server (username = `ubuntu`): Bare machine with OS
+     * The VM selected is an `m5ad.4xlarge` which $1.00 / hour in Oregon at time of writing
         * This instance type includes two 300 GB instance store volumes (temporary storage)
             * Data on these volumes will vanish on stops, terminations, or hardware failures
         * ***We strongly recommend following through this tutorial to the Terminate stage!!!***
