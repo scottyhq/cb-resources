@@ -9,6 +9,8 @@ grand_parent: Technical Resources
 * [Why does this require instructions?](#why-instructions-are-necessary)
     * [Key concepts](#key-concepts)
 * [Let's do it!](#walk-through)
+    * [short version](#short-version)
+    * [extended version](#extended-version) 
 
 ### What is the plan?
 
@@ -98,13 +100,39 @@ and share.
         * Use AWS EFS (Elastic File System) as storage shared by multiple instances; analogous to UNIX NFS
         * Use AWS S3 Object Storage to store any (large) amounts of data cheaply, independent of EC2 resources
 
+### Walk-through
+   
+Again these use AWS as the "target cloud" but these notes will apply broadly to any cloud.
+The short version describes what to do with scant attention to specifics.
+The extended version is more comprehensive.
+   
+#### Short version
+   
+* Install a bash shell if needed on your Local computer (Local is a laptop, dekstop etc)
+* Start a cloud VM, note three things:
+   * the generic VM username (here we use `ubuntu`)
+   * the ip address of the VM (here we use `12.23.34.45`)
+   * download the key pair file to Local (here we use `keypair.pem`)
+* Assign this VM a stable ip address
+   * This does not change even when you stop and re-start the VM
+   * On AWS the persistent ip address is provided via the Elastic IP service
+* `chmod 400 keypair.pem` and `ssh -i keypair.pem ubuntu@12.23.34` to log in to the cloud VM from Local
+* From the command line on the cloud VM install `miniconda`, `jupyter` and other Python libraries
+* Use `git clone https://github.com/organization/repository` on the cloud 
+   * If you need a working example you can use organization = `cloudbank-project` and repository = `ocean`
 
+left off here
+   
+   
+   
+   
+#### Extended version
 
 * Log on to the AWS console and select Services > Compute > EC2 > Launch Instance
     * This may also be done with the Command Line Interface (CLI) to AWS or an API such as `boto3`
 * Run through the launch Wizard; here are some details by example:
-    * 64 bit x86 Ubuntu Server (username = `ubuntu`): Bare machine with OS
-     * The VM selected is an `m5ad.4xlarge` which $1.00 / hour in Oregon at time of writing
+    * Image: 64 bit x86 Ubuntu Server (username = `ubuntu`): Bare machine image, just the OS
+    * VM: `m5ad.4xlarge`, cost $1.00 / hour in Oregon at time of writing
         * This instance type includes two 300 GB instance store volumes (temporary storage)
             * Data on these volumes will vanish on stops, terminations, or hardware failures
         * ***We strongly recommend following through this tutorial to the Terminate stage!!!***
