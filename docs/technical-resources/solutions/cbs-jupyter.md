@@ -15,13 +15,11 @@ grand_parent: Technical Resources
 ### What is the plan?
 
 Learning about how to compute on the cloud includes understanding **machine images**:
-Snapshots of the operating system including customization, code and data. This CloudBank solution
-serves two purposes: It introduce machine images and also demonstrates using a 
-cloud virtual machine (herein **VM**) as a traditional desktop... potentially quite a powerful one.
-
-
-Since [Jupyter notebooks](https://jupyter.org) are in common use, our aim will be to operate the cloud VM
-as a Jupyter notebook server. The interface will appear in our local machine's browser. 
+Snapshots of the entire operating system including installed software, other customizations, 
+code and data. This CloudBank solution serves two purposes: It introduce machine images 
+and demonstrates using a cloud virtual machine (herein **VM**) as a traditional desktop--possibly 
+quite a powerful one--for running a [Jupyter notebook](https://jupyter.org) server. 
+The interface to this working environment will be via a web browser on our local machine. 
 We move information back and forth securely using an **ssh tunnel**.
 
 
@@ -64,6 +62,7 @@ Or you can choose a powerful (more expensive) VM if you have some heavy computat
 Notice that you may start many *VMs* from a single *image*. Your collaborators may use an image
 to start their own VMs as well. This means that customized work environments are easy to replicate
 and share.
+
 
 #### Key concepts
 
@@ -215,33 +214,29 @@ left off here
 #### Configure the machine for research
 
 * Install software packages
-    * The following are installation commands by way of example (geoscience-oriented)
+    * The following are example installation commands (geoscience-oriented)
         * `conda install xarray`
         * `conda install -c conda-forge cmocean`
-        * `conda install boto` was apparently already done...
+        * `conda install boto`
         * `conda install netcdf4`
         * `conda install -c conda-forge ffmpeg`
         * `conda install networkx`
-        * `pip install git+https://github.com/cormorack/yodapy.git`
         * `pip install utm`
-        * `pip3 install manimlib` is Grant Sanderson's explanatory math visualization library
         * `sudo apt install nodejs` working towards widgets...
-    * Import datasets, typically to data volumes
-        * Example approach: Use `sftp -r` from the data directory of a source computer
-    * Imported code repositories (for example from GitHub) into the ubuntu user home directory
-    * Generate `requirements.txt` or `environment.yml`; look into `pip freeze` for example
+    * Import datasets: `sftp -r` from the data directory of a data source computer
+    * `requirements.txt` or `environment.yml`: `pip freeze` and related links needed
 
 #### Create an image (AMI) of this Virtual Machine
 * On the AWS console: EC2 'running instances table: Locate and select this instance
     * Actions menu > Image > Create Image
     * Be sure to attach extensive metadata (typically add Tags) to the AMI to make it recognizable
 
-## Share the AMI with other AWS accounts
+#### Share the AMI with other AWS accounts
     
 * On the AWS console > AMI listing (see left sidebar) > Permissions editor
 * Add the AWS 12-digit account of a destination account where you wish this AMI to be available
 
-## Terminate the VM so as not to continue paying for it
+#### Terminate the VM so as not to continue paying for it
 
 * ***WARNING: This will completely delete this EC2 instance. To mitigate concern...***
     * Consider starting a new EC2 instance using the AMI you created above.
@@ -251,25 +246,13 @@ left off here
 * Actions menu > Instance State > Terminate and confirm
 
 
-## Updating Anaconda and refreshing the machine image
+#### Notes
 
-* Once per month is a common Anaconda update tempo
-* Consider updating the operating system as well, for example using `sudo yum update`
-* Upon doing updates: Create a new AMI; and manage your AMI catalog to avoid zombie charges
-
-
-## Remaining open topics
-
-* Linking to M's content
-* Do not re-start a running Jupyterlab server. Check for it with `ps -ef | grep jupyter` is helpful.
-    * If the local machine disconnects it is usually sufficient to re-issue the ssh tunnel command from your computer
-* Enabling widgets is a confusing detail...
-
-```
-jupyter nbextension enable --py widgetsnbextension
-```
-
-* Making mpeg videos from chart sequences
+* Once per month updates is a typical pace
+* Update the operating system: `sudo yum update`
+* Create a new AMI and manage your AMI catalog to avoid zombie AMIs
+* On the VM: `ps -ef | grep jupyter` to see if the server is running
+* `jupyter nbextension enable --py widgetsnbextension`
    
    
 # CloudBank Solution Repo: Research Computing and Cloud Images
@@ -278,11 +261,6 @@ This tutorial introduces you, the researcher or student, to using a virtual mach
 on the cloud as a basis for research computing. This page describes using an image
 that has *already been built for you*. If you want to see how to do the preparatory
 build: Look into the `creating_an_image` sub-folder. 
-
-
-
-> We ***strongly encourage*** you to read the section on idiosyncratic cloud matters 
-that follows the main 'how to'. 
 
 
 You may be familiar with a *zip* or *tar* file containing an entire directory. 
@@ -519,57 +497,12 @@ a notebook listed on the left called `chlorophyll.ipynb`. You may click on this 
 and explore the contents. 
 
 
-## Idiosyncratic Cloud Matters
+#### Idiosyncratic Cloud Notes
 
-This section covers some details of the main program beyond the basics given above.  
+* To add a "data disk" to the VM allows us to create and manage additional storage capacity on a VM
+    * [Link: Mounting storage volumes on AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
+    * These persistent drives are called **Elastic Block Storage (EBS)** volumes on AWS
+    * AWS EC2 VMs may also feature *instance store volumes* equivalent to **`/tmp`** storage: Nothing persists here.
+* Updating Anaconda and the machine image operating system
+    * Once per month is a common Anaconda update tempo...
 
-- You may need to 
-[mount storage volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
-on your EC2 VM as file systems in addition to 
-your root file system. This is commonly done for managing large datasets for example. 
-See the [sub-folder **bootstrap** in this repo](https://github.com/cloudbank-project/image-research-computing-tutorial/tree/master/bootstrap)
-for more.
-    - You may choose to attach Elastic Block Storage (EBS) volumes which can be understood as 
-'additional persistent disk drives' (above the capacity of your root drive).  You may 
-need to mount those drives to make them usable.
-    - Your EC2 VM may also include *instance store volumes*. These may be understood as 
-'addtional ephemeral (temporary) disk drives'. That is: They evaporate when the instance stops. 
-It is therefore unwise to put anything on these volumes that you expect to access in the future. 
-- Updating Anaconda and the machine image operating system
-    - Once per month is a common Anaconda update tempo...
-    - See this comment in full on the `bootstrap` README
-- Locking down the ip address of the instance
-    - AWS provides a (not-unlimited) number of dedicated ip addresses
-        - These allow you to use the same ip address despite stopping and re-starting your instance
-        - To use follow these steps
-            - Use the left sidebar to navigate to the Elastic IP page of the AWS console
-            - Allocate an Elastic IP address
-            - Associate this IP address with your running instance
-
-## Using Jupyterlab
-
-
-There are comprehensive guides to using Jupyterlab. Here we include some minimal notes.
-
-
-* A Jupyter Lab environment has a left, narrow panel and a primary, larged notebook panel
-    * Notebooks are listed in the left panel
-    * Double-click them to open them in the main panel
-    * In our example the primary notebook of interest is called `chlorophyll.ipynb`
-* A Jupyter Lab *notebook* such as `chlorophyll.ipynb` consists of a sequence of cells.
-    * Each cell contains some text
-    * For our purposes each cell is either a *Python code* cell or a *markdown* cell
-        * Python code executes (or tries to execute) when the cell runs
-        * Markdown renders as formatted readable text -- like a narrative -- when the cell is run
-* How to run Jupyter Lab notebook cells
-    * Notice that a cell is selected when it has a vertical blue bar at its left border
-    * Select a cell by clicking on it with the cursor; or by using up/down arrows 
-    * Run a cell using Shift-Enter (this advances the selected cell to the next cell down)
-    * Run a cell using Ctrl-Enter (this does not advance the selected cell)
-    * Run a cell using Alt-Enter (this runs the cell and opens a new empty cell below it)
-* Modifying cells
-    * Double-click on a cell to open it as a text editor
-    * Edit the text to change what the cell does; and then run it to see the results
-* The *kernel* is the program that executes the Python code
-    * The kernel status is indicated by a circle at the upper right of the notebook
-    * Hover over the circle with your cursor for elaboration
