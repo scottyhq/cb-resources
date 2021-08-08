@@ -7,6 +7,7 @@ grand_parent: Technical Resources
 * [Ok now what is the plan?](#what-is-the-plan)
     * (and while we are it it: [How does one simplify the bash terminal display](https://robfatland.github.io/greenandblack/)?)
 * [Why does this require instructions?](#why-instructions-are-necessary)
+    * [Key concepts](#key-concepts)
 * [Let's do it!](#walk-through)
 
 ### What is the plan?
@@ -61,10 +62,6 @@ Notice that you may start many *VMs* from a single *image*. Your collaborators m
 to start their own VMs as well. This means that customized work environments are easy to replicate
 and share.
 
-
-
-### Walk-through
-
 #### Key concepts
 
 * Authentication
@@ -76,6 +73,7 @@ and share.
             * Cautionary tale: An Access Key file for your cloud account can be used to automatically run tasks
                 * This means that someone with your access key can easily spend $15,000 in one hour mining bitcoin
                 * ***Do not place credentials on Virtual Machines that will be used to create images per this walk-through***
+
 * Virtual Machines (VM / VM instance / "EC2" on AWS, "Google Compute Engine" on GCP, "Azure VM" on Azure)
     * There are a wide variety of instance types to choose from.
         * Any given instance type will have associated memory, processing power and storage (see below).
@@ -87,6 +85,7 @@ and share.
                 * It can be challenging to find instance cost
                 * Enter `cost <instance-type> <region>` in a browser search bar; for example:
                     * `cost m5ad.4xlarge oregon` shows $1.00 per hour as the first result
+
 * Storage: AWS-specific details
     * Disk drive version 1: Elastic Block Storage (EBS) is persistent storage, acting as a disk drive + file system
     * AWS also supports temporary disk storage through the [*instance store*](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
@@ -99,8 +98,6 @@ and share.
         * Use AWS EFS (Elastic File System) as storage shared by multiple instances; analogous to UNIX NFS
         * Use AWS S3 Object Storage to store any (large) amounts of data cheaply, independent of EC2 resources
 
-
-#### Start up a VM from the AWS console
 
 
 * Log on to the AWS console and select Services > Compute > EC2 > Launch Instance
@@ -174,6 +171,7 @@ and share.
     * `sudo mount -a`
 * Refer to the link given above for more detail on this procedure. A broken `fstab` file can prevent the VM from booting.
 
+   
 #### Install the Jupyter Lab notebook serve
 * Install Anaconda
     * search `install Anaconda Linux` and follow the instructions
