@@ -26,7 +26,7 @@ where we will move information back and forth securely using an **ssh tunnel**.
 
 At a high level this process is just configuring a research computer. Because it is on the 
 cloud there is some extra vocabulary involved and some extra steps, starting with securing 
-a cloud account. 
+a cloud account. Here's the narrative:
 
 
 * A researcher decides to work on the public cloud; and gains access...
@@ -45,9 +45,9 @@ a cloud account.
     * But the stored ***image*** persists and can be used to start up a new VM
 
 
-A VM may be started and stopped; and you pay for it by the hour only when it is Started.
-Being Stopped is like having the power turned off: You can resume using it without loss of data.
-However: Terminating a VM as the name implies means that it no longer exists. 
+A VM may be in two states: Started and Stopped. You pay for it by the hour only when it is Started.
+Stopped is like having the power turned off: You can resume using it later without loss of data.
+However: Terminating a VM means it no longer exists: Everything is gone. 
 
 
 Starting a VM using a stored image recreates the machine state when that image was saved.
