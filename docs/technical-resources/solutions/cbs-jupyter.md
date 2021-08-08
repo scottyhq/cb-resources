@@ -79,35 +79,28 @@ and share.
 
 
 * Virtual Machines (VM / VM instance / "EC2" on AWS, "Google Compute Engine" on GCP, "Azure VM" on Azure)
-    * There are a wide variety of instance types to choose from.
+    * Wide variety of instance types to choose from.
         * Any given instance type will have associated memory, processing power and storage (see below).
         * The cost of the instance -- per hour -- varies with these characteristics.
-        * On the AWS console you select the EC2 service and then Launch Instance
-            * This runs a launch wizard where your first step is to choose an operating system.
-            * The second step is to choose an instance *type*
-                * You should have a good idea of what this <instance-type> will cost per hour of operation
-                * It can be challenging to find instance cost
-                * Enter `cost <instance-type> <region>` in a browser search bar; for example:
-                    * `cost m5ad.4xlarge oregon` shows $1.00 per hour as the first result
+        * On the AWS console you select the EC2 service and then **Launch Instance**
+            * This runs a launch wizard: First step is to choose an operating system image
+            * Second step is choose instance *type*
+                * Search on `cost <instance-type> <cloud provider>` to check rate per hour
 
-   
-   
-* Storage: AWS-specific details
-    * Disk drive version 1: Elastic Block Storage (EBS) is persistent storage, acting as a disk drive + file system
+
+* Block storage is the term used for a disk volume: Root operating system, data drives etc
+    * On AWS this is called Elastic Block Storage (EBS)
     * AWS also supports temporary disk storage through the [*instance store*](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
-    * It is essential to distinguish between **Elastic Block Strage (EBS) volumes** and **(ephemeral) instance store volumes**
-        * Instance store volumes evaporate; so they are only useful for temporary storage. 
-        * If we Stop and then Start an image: The instance store file system will still be there but all files are gone. 
-    * To summarize
-        * Use EC2 instance store volumes for temporary storage where you do not need to keep data
-        * Use EC2 EBS block storage as persistent disk space when you need to keep data
-        * Use AWS EFS (Elastic File System) as storage shared by multiple instances; analogous to UNIX NFS
-        * Use AWS S3 Object Storage to store any (large) amounts of data cheaply, independent of EC2 resources
+    * Distinguish between **Elastic Block Strage (EBS)** and **(ephemeral) instance store volumes**
+        * Instance store volumes evaporate on Stop/Start. EBS volumes persist through Stop/Start.
+    * Additional storage modes: 
+        * AWS [EFS (Elastic File System)](https://aws.amazon.com/efs/) shared by multiple instances; ~ UNIX NFS
+        * AWS [S3 Object Storage](https://aws.amazon.com/s3/)
 
    
 ### Walk-through
    
-Again these use AWS as the "target cloud" but these notes will apply broadly to any cloud.
+Again these use AWS as the "example cloud" but these notes will apply broadly to any cloud.
 The short version describes what to do with scant attention to specifics.
 The extended version is more comprehensive.
    
@@ -125,11 +118,26 @@ The extended version is more comprehensive.
 * From the command line on the cloud VM install `miniconda`, `jupyter` and other Python libraries
 * Use `git clone https://github.com/organization/repository` on the cloud 
    * Need a working example? Use organization = `cloudbank-project`, repository = `ocean`
+* On the VM: Start a Jupyter Lab notebook server as a background process with browser display disabled
+    * Example command to listen on port 8887: `(jupyter lab --no-browser --port=8887) &`
+    * Note the token string printed by the Jupyterlab start-up process
+* On Local: Create an `ssh` tunnel associating Local port 7005 with VM port 8887
+    * Example 'ssh -N -f -i keypair.pem -L localhost:7005:localhost:8887 ubuntu@12.23.34.45'
+* On Local, in a browser address bar: Enter `localhost:7005` and at the prompt enter the token string
+    * This connects to the Notebook server on the cloud VM via the ssh tunnel
+    * Test out some notebook functionality; verify that the Python kernel runs etcetera
+* Stop and re-start the VM and again test functionality
+* Stop the VM and create an Amazon Machine Image (AMI)
+* Terminate (delete) the VM
+* Re-start the VM from the saved image and again test functionality
+* Note that the development of code within a `git` repository supports back-ups and collaboration
+* A VM to be used for extended time (days or longer) is a candidate for a daily auto-Stop
+    * On AWS: [CloudWatch and Lambda functions are commonly used for this purpose](https://aws.amazon.com/premiumsupport/knowledge-center/start-stop-lambda-cloudwatch/)
+    * This action prevents charges from accruing overnight when the VM is not in actual use
+* Use the AWS console to make the VM machine image (AMI) available to other people
+   
+   
 
-left off here
-   
-   
-   
    
 #### Extended version
 
