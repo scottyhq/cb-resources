@@ -39,6 +39,7 @@ a cloud account. There is enough complexity to merit a walk-through. Here's the 
 * Using a browser interface the researcher starts a dedicated cloud VM and logs in
     * The VM begins as a blank slate, just Ubuntu Linux
     * The walk-through given below happens to use the AWS cloud
+    * We have corresponding notes for Azure: [Building](https://cloudbank-project.github.io/image-research-computing-tutorial/azure/create_an_image) and [using](https://cloudbank-project.github.io/image-research-computing-tutorial/azure/use_an_image) machine images on the Azure cloud
 * The researcher configures the VM as a Jupyter Lab notebook server supporting a Python 3 kernel
     * Other useful tools / libraries / packages / datasets are installed as well
     * The researcher tests the Jupyter Lab server by connecting via browser
