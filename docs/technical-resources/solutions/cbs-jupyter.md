@@ -141,79 +141,34 @@ The extended version is more comprehensive.
 #### Extended version
 
 * Log on to the AWS console and select Services > Compute > EC2 > Launch Instance
-    * This may also be done with the Command Line Interface (CLI) to AWS or an API such as `boto3`
+    * This may also be done with the Command Line Interface (CLI) for AWS or using an API such as `boto3`
 * Run through the launch Wizard; here are some details by example:
     * Image: 64 bit x86 Ubuntu Server (username = `ubuntu`): Bare machine image, just the OS
     * VM: `m5ad.4xlarge`, cost $1.00 / hour in Oregon at time of writing
         * This instance type includes two 300 GB instance store volumes (temporary storage)
-            * Data on these volumes will vanish on stops, terminations, or hardware failures
-        * ***We strongly recommend following through this tutorial to the Terminate stage!!!***
-            * Failure to do so may result in you being charged for this Virtual Machine at this rate.
-            * We refer to this as zombie resource charges: You may forget about it but the cloud provider will not.
+            * Data on these volumes is temporary, will evaporate: Don't put anything important here
+        * Remember to Stop or Terminate this instance once you start it (and know the distinction)
+            * Zombie resource charges happen when we forget about a VM that keeps running
     * Configure instance: Default values
-    * Add storage: Default values 
-        * Note
-            * By selecting the `m5ad.4xlarge` we already have 2 300 GB SSD EBS drives on this instance
-            * EBS = Elastic Block Storage (AWS acronym), meaning "big empty disk drives"
-            * See the note below on mounting these drives to make them useful
-    * Add Tags: Added key values `Name`, `Project`, `Date`, `Owner`, `URL`
+        * Make the root volume larger (say 100GB) to create some working space
+    * Add Tags: Added key values `Name`, `Project`, `Date`, `Owner`, etcetera as appropriate
     * Configure Security Group: Default values
-    * Review and Launch: Created a temporary keypair file, downloaded
-        * See the main page of this repo for details
+    * Review and Launch: Create a keypair file `keypair.pem` and download it to Local
     * Launch: Note resulting ip address of the VM; let's say it is `12.23.34.45`
 
 #### From my own computer log on to the AWS EC2 instance
 
 * Relocate the downloaded keypair file to my `bash` home directory
-* `chmod 400` applied to keypair file
-* `my computer> ssh -i keypair.pem ubuntu@12.23.34.45`
+* `chmod 400 keypair.pem` is a permissions change applied to the keypair file
+* Connect with the vm: `ssh -i keypair.pem ubuntu@12.23.34.45`
 
 
 #### On the EC2 instance (VM) mount any added storage drives
 
-
-
-
-
-* Assumes you are logged on with a bash shell
-* This example works with temporary *instance store* volumes; will also work with EBS volumes
 * Search engine: 'AWS EC2 EBS mount` gives [this instructive link](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
-* `lsblk` produces a device listing
-    * For this `m5ad.4xlarge` instance we see three devices `nvme0n1`, `nvme1n1`, `nvme2n1` of type `disk`
-        * Full path is in fact `/dev/nvme0n1` and so on
-            * Only the third volume `nvme2n1` has an associated partition
-            * This is the root device where the operating system and ubuntu home directory resides
-            * The remaining two disks `nvme0n1` and `nvme1n1` are the empty instance store volumes; must be mounted
-        * Verify that there is no file system on the empty volumes
-            * `sudo file -s /dev/nvme1n1` --> `/dev/nvme1n1: data` (The result `data` indicates nothing there.)
-        * ***WARNING!!! The following command wipes a file system. Any data will be lost. ***
-            * `sudo mkfs -t xfs /dev/nvme0n1` and likewise for `nvme1n1`
-                * This should print out some confirmation stats
-                * If `mkfs.xfs` is `not found`: Search on installing it using `sudo yum install xfsprogs`
-            * `sudo file -s /dev/nvme0n1` should now show an XFS filesystem
-            * Create a data directory for each disk
-                * `sudo mkdir /data` and `sudo mkdir /data1`
-                * `sudo mount /dev/nvme0n1 /data` and `sudo mount /dev/nvme1n1 /data1`
-            * You will find that root owns these data directories. By default nobody else including the `ubuntu` user can write to them.
-                * It is a security risk to make a data directory world-writable
-                * The command to make a data directory world-writable is `sudo chmod a+rwx /data`
-                * I use this without any qualms; but please be aware that it is a security-relevant choice
-            * Test the data directories by `cd /data` and creating a new file
-
-#### Set up these storage disks to auto-mount on reboot
-
-* Backup copy: `sudo cp /etc/fstab /etc/fstab.orig`
-* Get the UUID: `sudo lsblk -o +UUID` 
-* Edit the `fstab` file: `sudo vim /etc/fstab`
-* Add this entry to the file: `UUID=aebf131c-6957-451e-8d34-ec978d9581ae  /data  xfs  defaults,nofail  0  2`
-* Test it out: 
-    * `sudo umount /data`
-    * `sudo mount -a`
-* Refer to the link given above for more detail on this procedure. A broken `fstab` file can prevent the VM from booting.
-
    
 #### Install the Jupyter Lab notebook serve
-* Install Anaconda
+* Install Anaconda or Miniconda
     * search `install Anaconda Linux` and follow the instructions
     * Once the download path is determined I used `wget` to download the installer on the VM
         * `wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh`
@@ -221,7 +176,6 @@ The extended version is more comprehensive.
         * `export PATH=~/anaconda3/bin:$PATH`
     * Once Anaconda is installed: use the `conda` package manager to install Jupyterlab
     * `conda install -c conda-forge jupyterlab`
-* Test this using the `ssh tunnel` described in the main page tutorial of this repository
 
 #### Configure the machine for research
 
@@ -240,6 +194,7 @@ The extended version is more comprehensive.
 
 #### Create an image (AMI) of this Virtual Machine
 * On the AWS console: EC2 'running instances table: Locate and select this instance
+    * When you run the **Create Image** process the VM will be Stopped
     * Actions menu > Image > Create Image
     * Be sure to attach extensive metadata (typically add Tags) to the AMI to make it recognizable
 
@@ -248,10 +203,12 @@ The extended version is more comprehensive.
 * On the AWS console > AMI listing (see left sidebar) > Permissions editor
 * Add the AWS 12-digit account of a destination account where you wish this AMI to be available
 
-#### Terminate the VM so as not to continue paying for it
+#### Terminate the VM
 
-* ***WARNING: This will completely delete this EC2 instance. To mitigate concern...***
-    * Consider starting a new EC2 instance using the AMI you created above.
+* This step established that it is safe to Terminate a VM backed up by a machine image
+    * Do this as a proof of concept operation
+    * ***WARNING: This will completely delete this EC2 instance***
+    * You could Start a new EC2 instance from the AMI prior to the Terminate just to be careful
     * You can verify everything is preserved as you expect in this new instance
     * At this point the AMI has been demonstrated as correct and you can Terminate both EC2 instances
 * On the AWS console > EC2 'Running Instances' table: Locate and select an instance to Terminate
@@ -265,8 +222,13 @@ The extended version is more comprehensive.
 * Create a new AMI and manage your AMI catalog to avoid zombie AMIs
 * On the VM: `ps -ef | grep jupyter` to see if the server is running
 * `jupyter nbextension enable --py widgetsnbextension`
-   
-   
+
+
+left off here
+
+what follows is a copy paste of the original student hands-on for restoring and using a VM.
+As such it can be reduced down to a much smaller section here.
+
 # CloudBank Solution Repo: Research Computing and Cloud Images
 
 This tutorial introduces you, the researcher or student, to using a virtual machine ***image*** 
