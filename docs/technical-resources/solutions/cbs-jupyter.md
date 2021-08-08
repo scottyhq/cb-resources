@@ -14,13 +14,13 @@ grand_parent: Technical Resources
 
 ### What is the plan?
 
-Learning about how to compute on the cloud includes understanding **machine images**:
-Snapshots of the entire operating system including installed software, other customizations, 
+Learning to compute on the cloud includes understanding **machine images**:
+Snapshots of an entire operating system including installed software, customization, 
 code and data. This CloudBank solution serves two purposes: It introduce machine images 
-and demonstrates using a cloud virtual machine (herein **VM**) as a traditional desktop--possibly 
+and it demonstrates using a cloud virtual machine (herein **VM**) as a traditional desktop--possibly 
 quite a powerful one--for running a [Jupyter notebook](https://jupyter.org) server. 
 The interface to this working environment will be via a web browser on our local machine. 
-We move information back and forth securely using an **ssh tunnel**.
+We move information back and forth securely from Local to Cloud using an **ssh tunnel**.
 
 
 ### Why instructions are necessary
@@ -76,6 +76,8 @@ and share.
                 * This means that someone with your access key can easily spend $15,000 in one hour mining bitcoin
                 * ***Do not place credentials on Virtual Machines that will be used to create images per this walk-through***
 
+
+
 * Virtual Machines (VM / VM instance / "EC2" on AWS, "Google Compute Engine" on GCP, "Azure VM" on Azure)
     * There are a wide variety of instance types to choose from.
         * Any given instance type will have associated memory, processing power and storage (see below).
@@ -88,6 +90,8 @@ and share.
                 * Enter `cost <instance-type> <region>` in a browser search bar; for example:
                     * `cost m5ad.4xlarge oregon` shows $1.00 per hour as the first result
 
+   
+   
 * Storage: AWS-specific details
     * Disk drive version 1: Elastic Block Storage (EBS) is persistent storage, acting as a disk drive + file system
     * AWS also supports temporary disk storage through the [*instance store*](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
@@ -100,6 +104,7 @@ and share.
         * Use AWS EFS (Elastic File System) as storage shared by multiple instances; analogous to UNIX NFS
         * Use AWS S3 Object Storage to store any (large) amounts of data cheaply, independent of EC2 resources
 
+   
 ### Walk-through
    
 Again these use AWS as the "target cloud" but these notes will apply broadly to any cloud.
@@ -108,18 +113,18 @@ The extended version is more comprehensive.
    
 #### Short version
    
-* Install a bash shell if needed on your Local computer (Local is a laptop, dekstop etc)
+* Install a bash shell on your **Local** computer (laptop, dekstop etc)
 * Start a cloud VM, note three things:
    * the generic VM username (here we use `ubuntu`)
    * the ip address of the VM (here we use `12.23.34.45`)
    * download the key pair file to Local (here we use `keypair.pem`)
-* Assign this VM a stable ip address
-   * This does not change even when you stop and re-start the VM
-   * On AWS the persistent ip address is provided via the Elastic IP service
+* Assign the VM a stable (static) ip address
+   * This ip address does not change even when you stop and re-start the VM
+   * AWS: Use the Elastic IP service. GCP and Azure: The term is *static external IP*.
 * `chmod 400 keypair.pem` and `ssh -i keypair.pem ubuntu@12.23.34` to log in to the cloud VM from Local
 * From the command line on the cloud VM install `miniconda`, `jupyter` and other Python libraries
 * Use `git clone https://github.com/organization/repository` on the cloud 
-   * If you need a working example you can use organization = `cloudbank-project` and repository = `ocean`
+   * Need a working example? Use organization = `cloudbank-project`, repository = `ocean`
 
 left off here
    
