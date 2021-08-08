@@ -19,8 +19,8 @@ Snapshots of an entire operating system including installed software, customizat
 code and data. This CloudBank solution serves two purposes: It introduce machine images 
 and it demonstrates using a cloud virtual machine (herein **VM**) as a traditional desktop--possibly 
 quite a powerful one--for running a [Jupyter notebook](https://jupyter.org) server. 
-The interface to this working environment will be via a web browser on our local machine. 
-We move information back and forth securely from Local to Cloud using an **ssh tunnel**.
+The interface to this working environment will be via a web browser on our **Local** machine. 
+We move information back and forth securely from Local to Cloud using an **`ssh` tunnel**.
 
 
 ### Why instructions are necessary
@@ -36,26 +36,25 @@ a cloud account. There is enough complexity to merit a walk-through. Here's the 
     * CloudBank uses the term *billing account*
 * Using a browser interface the researcher starts a dedicated cloud VM and logs in
     * The VM begins as a blank slate, just Ubuntu Linux
-    * The walk-through given below happens to use the AWS cloud
-    * We have corresponding notes for Azure: [Building](https://cloudbank-project.github.io/image-research-computing-tutorial/azure/create_an_image) and [using](https://cloudbank-project.github.io/image-research-computing-tutorial/azure/use_an_image) machine images on the Azure cloud
-* The researcher configures the VM as a Jupyter Lab notebook server supporting a Python 3 kernel
-    * Other useful tools / libraries / packages / datasets are installed as well
+    * These notes apply to AWS. CloudBank also has Azure [build](https://cloudbank-project.github.io/image-research-computing-tutorial/azure/create_an_image) and [use](https://cloudbank-project.github.io/image-research-computing-tutorial/azure/use_an_image) procedural notes. The Google cloud version is pending.
+* The researcher configures the VM as a Jupyter Lab notebook server supporting a Python kernel
+    * Other useful tools / libraries / packages / datasets are installed
     * The researcher tests the Jupyter Lab server by connecting via browser
         * This makes use of a secure connection called an *ssh tunnel*
 * The researcher uses cloud management tools to create an ***image*** of the VM on the cloud
-    * Unlike a container this image is specific to the cloud used; it is not transferrable between clouds
+    * Unlike a ***container***, this image is cloud-specific (not transferrable to other clouds)
 * The researcher Terminates (deletes) the VM: It is no longer available
     * The stored ***image*** persists and can be used to start up a new VM
 
 
-A VM may be in two states: Started and Stopped. You pay for it by the hour only when it is Started.
+A VM may be in one of two states: Started or Stopped. We pay for a VM by the hour: Only when it is Started.
 Stopped is like having the power turned off: You can resume using it later without loss of data.
-Terminating a VM means it no longer exists: Everything is gone. 
+Terminating a VM means the VM no longer exists: Everything is gone. 
 
 
-Starting a VM using a stored image recreates the machine in its state when the image was created.
-When you do this you have a choice of which VM to use for the image. You can use a smaller
-cheaper VM if you do not need a lot of computing power; say you just want to write and test some code. 
+Starting a VM from an image recreates the machine in its state when the image was created.
+When you do this you have a choice of which *type* of VM to use for the image. You can use a cheap low-power
+VM if you do not need a lot of computing power; say you just want to write and test some code. 
 Or you can choose a powerful (more expensive) VM if you have some heavy computation to do.
 
 
