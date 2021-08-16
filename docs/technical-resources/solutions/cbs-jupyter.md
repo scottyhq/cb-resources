@@ -4,6 +4,12 @@ parent: Solutions
 grand_parent: Technical Resources
 ---
 
+Using binder for a sandbox Jupyter notebook server:
+
+
+![binder as Jupyter notebook sandbox](https://github.com/cloudbank-project/cb-resources/main/docs/technical-resources/cbs-jupyter-static/jupyter_binder_notebook_listing.png)
+
+
 * [Ok now what is the plan?](#what-is-the-plan)
     * (and while we are it it: [How does one simplify the bash terminal display](https://robfatland.github.io/greenandblack/)?)
 * [Why does this require instructions?](#why-instructions-are-necessary)
