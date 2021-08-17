@@ -9,6 +9,12 @@ Using binder for a sandbox Jupyter notebook server:
 ![Binder as sandbox Jupyter notebook server](cbs-jupyter-static/jupyter_binder_notebook_listing.png)
 
 
+Or how about using html to moderate width:
+
+
+<img src="cbs-jupyter-static/jupyter_binder_notebook_listing.png" alt="Binder as sandbox Jupyter notebook server" width="300"/>
+
+
 
 * [Ok now what is the plan?](#what-is-the-plan)
     * (and while we are it it: [How does one simplify the bash terminal display](https://robfatland.github.io/greenandblack/)?)
