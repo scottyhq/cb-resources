@@ -6,8 +6,8 @@ grand_parent: Technical Resources
 
 Using binder for a sandbox Jupyter notebook server:
 
+![Binder as sandbox Jupyter notebook server](cbs-jupyter-static/jupyter_binder_notebook_listing.png)
 
-![Binder as sandbox Jupyter notebook server]({{site.baseurl}}/technical-resources/solutions/cbs-jupyter-static/jupyter_binder_notebook_listing.png)
 
 
 * [Ok now what is the plan?](#what-is-the-plan)
