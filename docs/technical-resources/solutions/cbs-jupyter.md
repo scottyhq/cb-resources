@@ -8,13 +8,16 @@ grand_parent: Technical Resources
 
 [Jupyter notebooks](https://jupyter.org) are really useful interactive coding environments that bring along
 documentation capacity in readable, non-code format. This means we can use Jupyter notebooks to develop and 
-test code and explain what's happening all in the same place. So far so good; and there are lots of great
-videos online showing them in action. 
+test code and legibly explain what's happening all in the same place. So far so good; and there are lots of great
+videos online showing this environment in action. 
 
 
 If you would like to build a Jupyter notebook environment (a *notebook server*) on a cloud machine: You're 
 in the right place. The directions here are "from the ground up" and serve a second purpose as well, which 
-is (we at CloudBank hope) to de-mystify building on and using the cloud. Before we begin, however: Remember
+is (we at CloudBank hope) to de-mystify building on and using the cloud. 
+
+
+Before we begin, however: Remember
 that cloud providers like to do things for us *"as a service"*. You can get into Jupyter notebooks
 in this manner in 
 [Azure](https://azure.microsoft.com/en-us/services/lab-services/) or on the 
@@ -22,7 +25,7 @@ in this manner in
 [Amazon Web Services](https://aws.amazon.com/sagemaker/) or on the
 [IBM Cloud](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_latest/wsj/analyze-data/jupyterlab.html)
 etcetera. If you choose to go this way there are two things to check on: The cost for the value-added service
-and whether the results of your work are transferrable to other environments. 
+and whether the results of your work will be transferrable to other environments / platforms.
 
 
 That said, we'll proceed with the Do It Yourself On The Cloud approach. Here is an example of a notebook server browser interface.
