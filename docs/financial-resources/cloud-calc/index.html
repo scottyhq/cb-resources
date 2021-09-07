@@ -1,0 +1,260 @@
+---
+title: Back-of-the-envelope cost estimator
+parent: Financial Resources
+layout: default
+---
+
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+  <style>
+    .numeric-select {
+      width: 4.5em !important;
+    }
+    #estimate-body{
+      color: #226622;
+      font-size: 2.5em;
+    }
+    #estimate-exact{
+      color: #555555;
+      font-size: .9em;
+      font-style: oblique;
+    }
+    .assumption-var {
+      border-radius: 3px;
+      border: 1px solid transparent;
+      border-bottom: 1px dotted black;
+      background-color: transparent;
+    }
+    .assumption-var:hover {
+      border: 1px dotted #0000FF;
+    }
+    .assumption-var:focus {
+      border: 1px solid #0000FF;
+      background-color: #EEEEFF;
+    }
+    #width-machine {
+      position: absolute;
+      visibility: hidden;
+      height: auto;
+      width: auto;
+      white-space: nowrap;
+      padding: 0px .2em;
+    }
+
+    .btn-icon {
+      width: 1em;
+      margin-right: .3em;
+      margin-bottom: .2em;
+    }
+
+    input {
+      font: 1em sans-serif;
+    }
+
+    .card h3 img {
+      width: 3em;
+    }
+
+    .card h4 {
+      font-size: 1.1em !important;
+      color: #0f7fff !important;
+      padding-bottom: .5em;
+    }
+
+  </style>
+
+
+
+<!-- Bootstrap -->
+
+<div class="card">
+<div class="card-header">
+  <h3 class="card-title"><img src="icon.png">&nbsp;Cloud Cost Estimator</h3>
+</div>
+<div class="card-body">
+  <div class="card">
+    <div class="card-body">
+      <h4>My project</h4>
+      <div class="form-inline">
+        will be funded for&nbsp;
+        <input id="n-years" type="number" class="form-control numeric-select" min=1 value=1>
+          &nbsp;<label class="plural" data-quantity="n-years" for="n-years">years</label>.
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <h4>On an average day,</h4>
+      <div class="form-inline">
+        <div class="form-group">
+          There will be&nbsp;
+        </div>
+        <div class="form-group">
+          <input id="people" type="number" class="form-control numeric-select" min=0 value=4>
+          &nbsp;<label class="plural" data-quantity="people" for="people">people</label>&nbsp;
+        </div>
+        <div class="form-group">
+          working on&nbsp;
+          <div class="form-group">
+            <select id="workstation-vm-grade" data-default="normally equipped" class="form-control selectpicker border vm-grade">
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          &nbsp;cloud workstations&nbsp;
+        </div>
+        <div class="form-group">
+          <select id="gpu-toggle" class="form-control selectpicker border">
+            <option>with</option>
+            <option selected>without</option>
+          </select>
+          <input type="number" id="n-gpus" min=1 class="form-control numeric-select" value=1>
+        </div>
+        <div id="gpu-suffix-text" class="form-group">
+          &nbsp;GPUs.&nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="card">
+    <div class="card-body">
+      <h4>The working data set</h4>
+      <div class="form-inline">
+        <div class="form-group">
+          will start off around&nbsp;
+          <input id="ds-start-size" type="number" class="form-control numeric-select" min=1 value=10>
+          <select id="ds-start-unit" class="form-control selectpicker border">
+            <option>MB</option>
+            <option>GB</option>
+            <option selected>TB</option>
+            <option>PB</option>
+          </select>
+          &nbsp;large,
+        </div>
+        &nbsp;and grow by roughly&nbsp;
+        <div class="form-group">
+          <input id="ds-accum-size" type="number" class="form-control numeric-select" min=0 value=100>
+          <select id="ds-accum-unit" class="form-control selectpicker border">
+            <option>MB</option>
+            <option selected>GB</option>
+            <option>TB</option>
+          </select>
+        </div>
+        &nbsp;of new data per&nbsp;
+        <div class="form-group">
+          <select id="ds-accum-period" class="form-control selectpicker border">
+            <option>day</option>
+            <option selected>month</option>
+            <option>year</option>
+          </select>.
+        </div>
+      </div>
+      <br/>
+      <div class="form-inline">
+        <label for="ds-rdbs"><input id="ds-rdbs" class="form-control" type="checkbox">&nbsp;At least part of the data will be stored in a relational database.</label>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="card">
+    <div class="card-body">
+      <h4>A few large computation jobs</h4>
+      <div class="form-inline">
+        <div class="form-group">
+          will be run throughout the lifetime of the project. Each run will take &nbsp;
+        </div>
+        <div class="form-group">
+          <input id="n-job-vms" type="number" class="form-control numeric-select" min=1 value=4>
+          <div class="form-group">
+            <select id="job-vm-grade" data-default="BEEFY" class="form-control selectpicker border vm-grade">
+            </select>
+          </div>
+          &nbsp;<div class="plural" data-quantity="n-job-vms">machines</div>&nbsp;
+        </div>
+        <div class="form-group">
+          working for&nbsp;
+        </div>
+        <div class="form-group">
+          <input id="job-length" type="number" class="form-control numeric-select" min=1 value=5>
+        </div>
+        &nbsp;<div class="plural" data-quantity="job-length">days</div>&nbsp;straight to complete. We anticipate running&nbsp;
+        <input id="n-jobs" type="number" class="form-control numeric-select" min=0 value=6>
+        &nbsp;such&nbsp;<div class="plural" data-quantity="n-jobs">jobs</div>&nbsp;per&nbsp;
+        <select id="n-job-period" class="form-control selectpicker border">
+          <option>month</option>
+          <option selected>year</option>
+        </select>
+        .
+
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="card">
+    <div class="card-body">
+      <h4>Longterm data storage</h4>
+      <div class="form-inline">
+        <div class="form-group">
+          will&nbsp;
+          <select id="ds-longterm-toggle" class="form-control selectpicker border">
+            <option>be</option>
+            <option selected>not be</option>
+          </select>
+          &nbsp;needed&nbsp;
+        </div>
+        <div id="ds-longterm-controls">
+          <div class="form-group">
+            for&nbsp;<input id="ds-longterm-years" type="number" class="form-control numeric-select" min=1 value=5>&nbsp;<div class="plural" data-quantity="ds-longterm-years">years</div>&nbsp;after the project completes. About&nbsp;
+            <input id="ds-longterm-size" type="number" class="form-control numeric-select" min=0 value=1.2>
+            <select id="ds-longterm-unit" class="form-control selectpicker border">
+              <option>MB</option>
+              <option>GB</option>
+              <option selected>TB</option>
+            </select>
+            &nbsp;of data will be preserved in this data set.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <input class="btn btn-primary" type="button" value="Calculate" onclick="presentResult(defaults)" aria-expanded="false" aria-controls="estimate">
+  <br />
+  <br />
+
+  <div class="collapse" id="estimate">
+    <div class="card bg-light">
+      <div class="card-body">
+        We estimate about:<br/>
+        <span id="estimate-body">For you, $14.27 / month</span><br/>
+        <span id="estimate-exact"></span><br/><br/>
+        based on the following assumptions:
+        <span id="width-machine" aria-hidden="true"></span>
+        <ul id="estimate-assumptions">
+        </ul>
+        <a class="btn btn-primary" role="button" id="cb-share" href="mailto: help@cloudbank.org" target="blank">Contact CloudBank to discuss</a>
+        <br/><br/>
+        For more detailed estimates, check out these vendor-supplied cost calculators:<br/><br/>
+        <a class="btn btn-primary" role="button" href="https://calculator.aws/" target="blank"><img class="btn-icon" src="link.png">AWS</a>
+        <a class="btn btn-primary" role="button" href="https://azure.microsoft.com/en-us/pricing/calculator/" target="blank"><img class="btn-icon" src="link.png">Azure</a>
+        <a class="btn btn-primary" role="button" href="https://cloud.google.com/products/calculator/" target="blank"><img class="btn-icon" src="link.png">GCP</a>
+        <a class="btn btn-primary" role="button" href="https://www.ibm.com/cloud/cloud-calculator" target="blank"><img class="btn-icon" src="link.png">IBM</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="calc.js"></script>
+
