@@ -27,7 +27,7 @@
     "BEEFY": {
       cores: 16,
       ram: 256,
-      cost_hr: 60,
+      cost_hr: 2.1,
     }
   }
 
