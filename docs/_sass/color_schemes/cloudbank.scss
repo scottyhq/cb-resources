@@ -3,34 +3,41 @@ $btn-primary-color: $blue-200;
 $base-button-color: $grey-dk-250;
 $body-heading-color: $blue-000;
 
-
-.icon-list {
-    list-style: none;
-    padding-left: 0px !important;
-    // columns: 2;
+.card-bin {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.icon-list a:not([class]) {
-    background-image: none !important;
+.icon-card div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 10em;
 }
 
-.icon-list li::before {
-    content: "" !important;
-    margin: 0px;
-    /*display: inline-block;*/
-}
-
-.icon-list li img {
-    display: inline-block;
+.icon-card img {
+    display: block;
     width: 4em;
     border-radius: 50%;
     border:  5px solid $btn-primary-color;
     margin: 1em;
+    margin-bottom: .25em;
     vertical-align: middle;
 }
 
-.icon-list a:hover img {
+.icon-card a:hover img {
     border:  5px solid $link-color;
+}
+
+
+.icon-card a:not([class]) {
+    background-image: none !important;
+}
+
+.icon-card span {
+    white-space: pre-wrap;
+    text-align: center;
 }
 
 .postscript {

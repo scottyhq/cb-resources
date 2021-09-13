@@ -13,18 +13,49 @@ Cloudbank's focus is on helping researchers and educators utilize the cloud as a
 
 Here are some of the most common patterns we see appear in research cloud infrastructure. Follow the links for guides on how to map this work onto cloud services.
 
-{: .icon-list}
-- ![Speed gauge icon]({{site.baseurl}}/static/pattern-hpc.png) HPC
-- [![Circuit brain icon]({{site.baseurl}}/static/pattern-ml.png) ML and Deep Learning](patterns/deep-learning)
-- ![IOT Cloud icon]({{site.baseurl}}/static/pattern-iot.png) IOT
-- ![DNA strand icon]({{site.baseurl}}/static/pattern-genom.png) Genomics
-- ![Hand holding atom icon]({{site.baseurl}}/static/pattern-gateway.png)Science Gateways
-- ![Application icon]({{site.baseurl}}/static/pattern-sw.png) Licensed software platforms
-- ![Security icon]({{site.baseurl}}/static/pattern-security.png) Security-sensetive data
+<div class="card-bin" markdown="0">
+
+{% include icon_card.html
+    link=""
+    title="HPC"
+    icon="pattern-hpc.png" %}
+
+{% include icon_card.html
+    link="patterns/deep-learning"
+    title="ML and Deep Learning"
+    icon="pattern-ml.png" %}
+
+{% include icon_card.html
+    link=""
+    title="IOT"
+    icon="pattern-iot.png" %}
+
+{% include icon_card.html
+    link=""
+    title="Genomics"
+    icon="pattern-genom.png" %}
+
+
+{% include icon_card.html
+    link=""
+    title="Science Gateways"
+    icon="pattern-gateway.png" %}
+
+
+{% include icon_card.html
+    link=""
+    title="Licensed software platforms"
+    icon="pattern-sw.png" %}
+
+{% include icon_card.html
+    link=""
+    title="Security-sensetive data"
+    icon="pattern-security.png" %}
+
+</div>
 
 ## Solutions
 
-{: .icon-list}
 - Containers
 - [HPC](https://github.com/cloudbank-project/hpc)
 
