@@ -56,8 +56,40 @@ Here are some of the most common patterns we see appear in research cloud infras
 
 ## Solutions
 
-- Containers
-- [HPC](https://github.com/cloudbank-project/hpc)
+Cloudbank Solutions are researcher-oriented tutorials written by the Cloudbank team. Follow the links below to access hands-on guides for how to get the most out of your cloud access.
+
+<div class="card-bin" markdown="0">
+
+{% include icon_card.html
+    title="Containerization"
+    link="solutions/cbs-containerization/"
+    icon="solution-containers.png" %}
+{% include icon_card.html
+    title="High Performance Computing"
+    link="solutions/cbs-high-performance-computing/"
+    icon="pattern-hpc.png" %}
+{% include icon_card.html
+    title="Optimize cloud spend"
+    link="solutions/cbs-optimize/"
+    icon="solution-optimize-spend.png" %}
+{% include icon_card.html
+    title="Review and increase quotas"
+    link="solutions/cbs-quotas/"
+    icon="solution-quotas.png" %}
+{% include icon_card.html
+    title="Secure data"
+    link="solutions/cbs-security/"
+    icon="pattern-security.png" %}
+{% include icon_card.html
+    title="Serve data using an Application Programming Interface (API)"
+    link="solutions/cbs-data-server/"
+    icon="solution-api.png" %}
+{% include icon_card.html
+    title="Use a cloud virtual machine as a Jupyter notebook server"
+    link="solutions/cbs-jupyter/"
+    icon="solution-jupyter.png" %}
+
+</div>
 
 ## Terms and Jargon
 
