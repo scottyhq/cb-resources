@@ -2,6 +2,7 @@
 title: Use a cloud virtual machine as a Jupyter notebook server
 parent: Solutions
 grand_parent: Technical Resources
+icon: solution-jupyter.png
 ---
 
 # Introduction

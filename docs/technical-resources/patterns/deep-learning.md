@@ -1,6 +1,7 @@
 ---
 title: Deep Learning in the cloud
 parent: Design Patterns
+icon: pattern-ml.png
 grand_parent: Technical Resources
 ---
 

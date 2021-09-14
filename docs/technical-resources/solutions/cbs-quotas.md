@@ -2,6 +2,7 @@
 title: Review and increase quotas
 parent: Solutions
 grand_parent: Technical Resources
+icon: solution-quotas.png
 ---
 
 # CloudBank Solution: Quotas

@@ -2,6 +2,7 @@
 title: Serve data using an Application Programming Interface (API)
 parent: Solutions
 grand_parent: Technical Resources
+icon: solution-api.png
 ---
 
 * The premise here is: You have some data, you'd like to make it available over the Internet, how hard is this?
