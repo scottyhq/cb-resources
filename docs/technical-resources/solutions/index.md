@@ -3,6 +3,7 @@ title: Solutions
 parent: Technical Resources
 has_children: true
 nav_order: 2
+has_toc: false
 ---
 
 <div class="card-bin" markdown="0">
