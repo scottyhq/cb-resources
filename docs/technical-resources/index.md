@@ -13,10 +13,35 @@ Cloudbank's focus is on helping researchers and educators utilize the cloud as a
 
 Here are some of the most common patterns we see appear in research cloud infrastructure. Follow the links for guides on how to map this work onto cloud services.
 
+<!-- - **Job-based computation**
+
+  Submitting computational workloads to run on powerful computers; HPC clusters
+
+- **Data exploration**
+
+  Working with code and data interactively to explore the properties of a data set
+
+- **ML and Deep Learning**
+
+  TODO: Basically data exploration
+
+- **Data dissemination**
+
+  Making a dataset available for colleagues outside of your lab to use; science gateways
+
+- **Web applications**
+
+  Self-hosting web applications for your lab or research community to use; ML annotation software
+
+- **Working with privacy-sensitive data**
+
+  Government compliance and standards; securing data
+ -->
+
 <div class="card-bin" markdown="0">
 
 {% include icon_card.html
-    link=""
+    link="patterns/hpc"
     title="HPC"
     icon="pattern-hpc.png" %}
 
@@ -31,13 +56,13 @@ Here are some of the most common patterns we see appear in research cloud infras
     icon="pattern-iot.png" %}
 
 {% include icon_card.html
-    link=""
+    link="patterns/genomics"
     title="Genomics"
     icon="pattern-genom.png" %}
 
 
 {% include icon_card.html
-    link=""
+    link="patterns/gateways"
     title="Science Gateways"
     icon="pattern-gateway.png" %}
 

@@ -1,18 +1,17 @@
 ---
-title: Deep Learning in the cloud
+title: Machine Learning
 parent: Design Patterns
 icon: pattern-ml.png
 grand_parent: Technical Resources
 ---
 
-# Deep Learning
+# Machine Learning in the Cloud
 
-- Table of Contents
-{:toc}
+The cloud is particularly well suited to training neural networks (or any other form of ML model); it can provide as much computational power as you need, when you need it, and you pay for only what you use.
 
-The cloud is particularly well suited to training neural networks (or any other form of ML model); it can provide as much computational power as you need, when you need it, and you pay for only what you use. To read about success stories, check out [&sect;Case Studies](#case-studies). To learn more, read on.
+There is a substantial amount of overlap between the needs of Machine Learning projects and more general HPC workloads. That said, cloud platforms tend to provide separate services for [general HPC workloads](../hpc) and for ML-specific work. These ML services offer value-add tools to make training and inspecting models easier, and can often be built off of pre-trained models provided by the platform. The rest of this article goes into detail about such dedicated ML services.
 
-The major pieces of instracture to think about for such a workload include:
+The major pieces of instracture to think about for ML workloads include:
 
 - **Development / Experimentation**
 
