@@ -73,8 +73,8 @@ Here are some of the most common patterns we see appear in research cloud infras
     icon="pattern-sw.png" %}
 
 {% include icon_card.html
-    link=""
-    title="Security-sensetive data"
+    link="patterns/security"
+    title="Security and Sensetive data"
     icon="pattern-security.png" %}
 
 </div>
