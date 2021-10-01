@@ -39,44 +39,14 @@ Here are some of the most common patterns we see appear in research cloud infras
  -->
 
 <div class="card-bin" markdown="0">
-
-{% include icon_card.html
-    link="patterns/hpc"
-    title="HPC"
-    icon="pattern-hpc.png" %}
-
-{% include icon_card.html
-    link="patterns/deep-learning"
-    title="ML and Deep Learning"
-    icon="pattern-ml.png" %}
-
-{% include icon_card.html
-    link=""
-    title="IOT"
-    icon="pattern-iot.png" %}
-
-{% include icon_card.html
-    link="patterns/genomics"
-    title="Genomics"
-    icon="pattern-genom.png" %}
-
-
-{% include icon_card.html
-    link="patterns/gateways"
-    title="Science Gateways"
-    icon="pattern-gateway.png" %}
-
-
-{% include icon_card.html
-    link=""
-    title="Licensed software platforms"
-    icon="pattern-sw.png" %}
-
-{% include icon_card.html
-    link="patterns/security"
-    title="Security and Sensetive data"
-    icon="pattern-security.png" %}
-
+{% assign subpages = site.pages | where: 'parent', 'Design Patterns' %}
+{% for subpage in subpages %}
+    {% capture subpage_url %}{{ site.baseurl }}{{ subpage.url }}{% endcapture %}
+    {% include icon_card.html
+        link=subpage_url
+        title=subpage.title
+        icon=subpage.icon %}   
+{% endfor %}
 </div>
 
 ## Solutions

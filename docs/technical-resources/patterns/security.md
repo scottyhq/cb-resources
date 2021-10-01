@@ -1,7 +1,7 @@
 ---
 title: Security and Sensetive data
 parent: Design Patterns
-icon: pattern-gateways.png
+icon: pattern-security.png
 grand_parent: Technical Resources
 ---
 

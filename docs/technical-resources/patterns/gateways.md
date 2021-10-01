@@ -1,7 +1,7 @@
 ---
 title: Science Gateways
 parent: Design Patterns
-icon: pattern-gateways.png
+icon: pattern-gateway.png
 grand_parent: Technical Resources
 ---
 
