@@ -3,6 +3,15 @@ $btn-primary-color: $blue-200;
 $base-button-color: $grey-dk-250;
 $body-heading-color: $blue-000;
 
+h2 img {
+    width: 2.5em;
+    border-radius: 50%;
+    border:  5px solid $body-heading-color;
+    margin: .5em .25em .5em 0;
+    vertical-align: middle;
+}
+
+
 .card-bin {
     display: flex;
     flex-wrap: wrap;
