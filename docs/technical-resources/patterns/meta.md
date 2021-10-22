@@ -50,6 +50,7 @@ as Stack Overflow.
     - Pickle facilitates 'picking up where the previous notebook left off'.
     - Warning: Not necessarily cross-platform
     - Rejoice: Checkpointing! Cloud cost savings!
+- Up your game to JSON!
 
 ## More on Jupyter 2: Magic
 
