@@ -11,6 +11,21 @@ We have inclueded this space to list common meta-practices / meta-design with (a
 Some of this content has direct relevance to data science collaboration: Good ideas irrespective of cloud use. 
 
 
+## Learning curves and time investment
+
+The list of topics that follows can appear intimidating. Not surprisingly the main condition of success is
+being able to make time: First to understand the landscape that we sketch here, and second to incorporate
+the ideas and skills into your research process. To this end it is a Bad News Good News situation in our
+view. The Bad News is that there is no substitute for clearing away all distractions and focusing for an 
+extended period (days / weeks / months) on building these new skills. The Good News is that we are in a 
+boom era for excellent learning materials, reference documents, and help debugging mysterious errors.
+
+
+As we value useful details, let's state one here. Copying and pasting error messages into your browser
+search window is a surprisingly effective tool because of the existence of "knowledge base" websites such 
+as Stack Overflow. 
+
+
 ## The shell
 
 ## Software versioning and `git`
@@ -23,13 +38,15 @@ Some of this content has direct relevance to data science collaboration: Good id
 
 ## Binder sandboxes
 
-## Integration of multiple notebooks 1: Pickle
-
-## Integration of multiple notebooks 2: Jupyter Books
+## Integrating and harmonizing notebooks: Jupyter Books
 
 ## More on git: Clones in relation to Forks
 
-## More on Jupyter 1: Commonly used libraries for meta-tasks
+## More on Jupyter 1: Commonly used Python libraries for meta-tasks
+
+- Pickle: An easy way to share data structures across notebooks. [Here is an introductory blog.](https://betterprogramming.pub/dont-fear-the-pickle-using-pickle-dump-and-pickle-load-5212f23dbbce)
+    - Notebooks tend to grow until they become unwieldy. A natural step is to break them down into smaller conceptual blocks. 
+    - Pickle facilitates 'picking up where the previous notebook left off'.
 
 ## More on Jupyter 2: Magic
 
@@ -38,6 +55,11 @@ Some of this content has direct relevance to data science collaboration: Good id
 ## More on Jupyter 4: How the cloud plays in
 
 ## Natural Language Processing 1: Where to begin
+
+- The Jupyter environment as noted is suitable for many data science sub-disciplines. Natural Language Processing (NLP) is no exception.
+    - [This tutorial video provides an excellent introduction to the topic]
+
+- 
 
 ## Regular Expressions
 
