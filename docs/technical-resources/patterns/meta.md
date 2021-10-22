@@ -57,6 +57,10 @@ as Stack Overflow.
 
 ## More on Jupyter 4: How the cloud plays in
 
+## Jupyter for Education
+
+[Here](https://jupyter4edu.github.io/jupyter-edu-book/case-studies.html)
+
 ## Natural Language Processing 1: Where to begin
 
 - The Jupyter environment as noted is suitable for many data science sub-disciplines. Natural Language Processing (NLP) is no exception.
