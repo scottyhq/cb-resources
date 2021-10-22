@@ -1,7 +1,14 @@
-# Thesis
+---
+title: Meta
+parent: Design Patterns
+icon: pattern-security.png
+grand_parent: Technical Resources
+---
 
-We use this space to list a number of meta-practices / meta-design / meta-X with (a) brief remarks on utility and (b) references we have found useful.
-Some content is really relevant to data science collaboration: Good ideas irrespective of cloud use. 
+# Meta
+
+We have inclueded this space to list common meta-practices / meta-design with (a) brief remarks on utility and (b) references we have found useful.
+Some of this content has direct relevance to data science collaboration: Good ideas irrespective of cloud use. 
 
 
 ## The shell
