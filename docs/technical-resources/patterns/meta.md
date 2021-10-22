@@ -25,6 +25,7 @@ As we value useful details, let's state one here. Copying and pasting error mess
 search window is a surprisingly effective tool because of the existence of "knowledge base" websites such 
 as Stack Overflow. 
 
+## Linux
 
 ## The shell
 
@@ -47,6 +48,8 @@ as Stack Overflow.
 - Pickle: An easy way to share data structures across notebooks. [Here is an introductory blog.](https://betterprogramming.pub/dont-fear-the-pickle-using-pickle-dump-and-pickle-load-5212f23dbbce)
     - Notebooks tend to grow until they become unwieldy. A natural step is to break them down into smaller conceptual blocks. 
     - Pickle facilitates 'picking up where the previous notebook left off'.
+    - Warning: Not necessarily cross-platform
+    - Rejoice: Checkpointing! Cloud cost savings!
 
 ## More on Jupyter 2: Magic
 
