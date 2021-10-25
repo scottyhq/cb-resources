@@ -8,7 +8,10 @@ grand_parent: Technical Resources
 # Meta
 
 We have inclueded this space to list common meta-practices / meta-design with (a) brief remarks on utility and (b) references we have found useful.
-Some of this content has direct relevance to data science collaboration: Good ideas irrespective of cloud use. 
+Some of this content has direct relevance to data science collaboration: Good ideas irrespective of cloud use. In fact let's be very clear:
+This is research computing methods advocacy. Cloud computing happens to be part of that and it is our strong suit; but cloud is just one of 
+the many roads that leads to Rome. Where Rome in this metaphor is the place a researcher wants to be: Concentrating on the research, 
+not the supporting infrastructure.
 
 
 ## Learning curves and time investment
