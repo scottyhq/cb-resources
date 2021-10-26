@@ -28,6 +28,15 @@ As we value useful details, let's state one here. Copying and pasting error mess
 search window is a surprisingly effective tool because of the existence of "knowledge base" websites such 
 as Stack Overflow. 
 
+## Demand good training!
+
+By this we mean: Imagine you want to learn how to analyze dolphin calls as they would sound in the oceans of Europa. 
+There is *probably* a really good YouTube training seminar on just this topic... so finding it is the trick. Often 
+this requires a bit of diligence and maybe some skill with the search terms. As a more concrete example we found
+[this](https://regexone.com/) training resource on learning how to work with **regular expressions**. Super powerful
+if you work with text interpretation and parsing, say in NLP. So we put that link below. If you 
+find a good resource: Tell us so we can put it here!
+
 ## Linux
 
 ## The shell
@@ -73,5 +82,7 @@ as Stack Overflow.
 - 
 
 ## Regular Expressions
+
+A regular expression is a formalism for parsing text. Learn how to do it [here](https://regexone.com/).
 
 ## The Cloud 1: What are the key differences?
