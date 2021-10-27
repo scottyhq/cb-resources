@@ -7,32 +7,28 @@ grand_parent: Technical Resources
 
 # Meta
 
-We have inclueded this space to list common meta-practices / meta-design with (a) brief remarks on utility and (b) references we have found useful.
-Some of this content has direct relevance to data science collaboration: Good ideas irrespective of cloud use. In fact let's be very clear:
-This is research computing methods advocacy. Cloud computing happens to be part of that and it is our strong suit; but cloud is just one of 
-the many roads that leads to Rome. Where Rome in this metaphor is the place a researcher wants to be: Concentrating on the research, 
-not the supporting infrastructure.
+We include this page for common meta-practice / meta-design. We try to describe *what* is useful and *how* one learns 
+to use it. The theme is collaborative data science irrespective of cloud computing. Research computing methods advocacy
+is a broader topic includes cloud but many other tools and technologies and methods besides. 
 
 
 ## Learning curves and time investment
 
-The list of topics that follows can appear intimidating. Not surprisingly the main condition of success is
-being able to make time: First to understand the landscape that we sketch here, and second to incorporate
-the ideas and skills into your research process. To this end it is a Bad News Good News situation in our
-view. The Bad News is that there is no substitute for clearing away all distractions and focusing for an 
-extended period (days / weeks / months) on building these new skills. The Good News is that we are in a 
-boom era for excellent learning materials, reference documents, and help debugging mysterious errors.
+These topics may seem daunting. They tend to make sense with some dedicated time and effort. As with
+research there is no substitute for clearing away distractions and focusing for an 
+extended period (from minutes to months depending) developing new skills. The good news is that
+we are in a "boom" era for documentation, tutorials, knowledge bases and debugging tools. 
+For example it is now common practice -- given a bug some code -- to paste the error message into a browser 
+and shortly arrive at 
+a good solution to the problem on Stack Overflow. YouTube abounds with walk-throughs and tutorials; 
+and resource books such as the Python Data Science Handbook can be found online at no cost. 
+ 
 
+## Help us curate good training resources
 
-As we value useful details, let's state one here. Copying and pasting error messages into your browser
-search window is a surprisingly effective tool because of the existence of "knowledge base" websites such 
-as Stack Overflow. 
-
-## Demand good training!
-
-By this we mean: Imagine you want to learn how to analyze dolphin calls as they would sound in the oceans of Europa. 
-There is *probably* a really good YouTube training seminar on just this topic... so finding it is the trick. Often 
-this requires a bit of diligence and maybe some skill with the search terms. As a more concrete example we found
+Suppose you are interested in analyzing dolphin vocalizations. 
+You may find a training series on YouTube; or you may create one. 
+As a more concrete example we found
 [this](https://regexone.com/) training resource on learning how to work with **regular expressions**. Super powerful
 if you work with text interpretation and parsing, say in NLP. So we put that link below. If you 
 find a good resource: Tell us so we can put it here!
@@ -86,3 +82,14 @@ find a good resource: Tell us so we can put it here!
 A regular expression is a formalism for parsing text. Learn how to do it [here](https://regexone.com/).
 
 ## The Cloud 1: What are the key differences?
+
+## The Cloud 2: How do I move data between clouds?
+
+* [AWS-to-Azure via AzCopy](https://azure.microsoft.com/en-us/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy/)
+and [via Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-migration-guidance-s3-azure-storage)
+* [GCP-to-Azure via AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-google-cloud) and 
+[via Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/connector-google-cloud-storage?tabs=data-factory)
+* [GCP-to-AWS](https://aws.amazon.com/blogs/big-data/migrate-terabytes-of-data-quickly-from-google-cloud-to-amazon-s3-with-aws-glue-connector-for-google-bigquery/)
+* [Azure-to-AWS](https://aws.amazon.com/blogs/storage/one-way-to-migrate-data-from-azure-blob-storage-to-amazon-s3/)
+* [AWS-to-GCP](https://cloud.google.com/architecture/transferring-data-from-amazon-s3-to-cloud-storage-using-vpc-service-controls-and-storage-transfer-service)
+* [Azure-to-GCP](https://cloud.google.com/migrate/compute-engine/docs/4.5/how-to/migrate-azure-to-gcp/overview)
