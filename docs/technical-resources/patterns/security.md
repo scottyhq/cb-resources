@@ -1,13 +1,13 @@
 ---
-title: Security and Sensetive data
+title: Security and Sensitive data
 parent: Design Patterns
 icon: pattern-security.png
 grand_parent: Technical Resources
 ---
 
-# Working with Privacy-sensetive Data
+# Working with Privacy-sensitive Data
 
-Many projects are well suited to cloud resources but have to be extra carfeul about how their information is stored, especially projects dealing with privacy-sensetive human data. Such data may need to be specially handled, or subject to regulations and compliance laws. This comes up especially when dealing with privacy-sensitive subjects like medical work, or data received from federal programs with their own sharing agreements.
+Many projects are well suited to cloud resources but have to be extra carfeul about how their information is stored, especially projects dealing with privacy-sensitive human data. Such data may need to be specially handled, or subject to regulations and compliance laws. This comes up especially when dealing with privacy-sensitive subjects like medical work, or data received from federal programs with their own sharing agreements.
 
 ## Legal compliance
 
