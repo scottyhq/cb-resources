@@ -64,16 +64,39 @@ Cloudbank Solutions are researcher-oriented tutorials written by the Cloudbank t
 {% endfor %}
 </div>
 
-## Terms and Jargon
+## Platform-specific resources
 
-Although all cloud platforms offer roughly equivalent functionality, the exact terminology and services available for a given use case differ across them. Below are references to help fill in the gaps.
+Although all cloud platforms offer roughly equivalent functionality, the exact terminology and services available for a given use case differ across them. Below are references and guides tailored to the specific platforms supported by CloudBank.
 
-- [Vendor comparison chart](https://www.cloudbank.org/cloudbank-catalog)
+<div class="card-bin" markdown="0">
 
-    A chart laying out the equivalent product brand names for most common cloud serivces, across all platforms supported by CloudBank
+    {% include icon_card.html
+        link="platforms/aws"
+        title="Amazon AWS"
+        subclass="icon-borderless"
+        icon="aws-logo.png" %}   
 
-- [Glossary](https://www.cloudbank.org/cloud-terms)
 
-    A glossary of common terms that you'll see across clouds
+    {% include icon_card.html
+        link="platforms/gcp"
+        title="Google GCP"
+        subclass="icon-borderless"
+        icon="google-cloud-platform.png" %}   
 
+
+    {% include icon_card.html
+        link="platforms/aws"
+        title="Microsoft Azure"
+        subclass="icon-borderless"
+        icon="microsoft-azure.png" %}   
+
+
+    {% include icon_card.html
+        link="platforms/ibm"
+        title="IBM Cloud"
+        subclass="icon-borderless"
+        icon="ibm-cloud.png" %}   
+
+
+</div>
 
