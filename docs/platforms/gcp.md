@@ -16,6 +16,12 @@ grand_parent: Technical Resources
 - [Cost optimization/cost monitoring](https://cloud.google.com/cost-management)
 - [IAM](https://cloud.google.com/iam/docs/overview)
 
+
+# Learning resources
+
+- [Qwiklabs](https://www.qwiklabs.com/)
+
+
 # Architecture
 
 ## VPC
