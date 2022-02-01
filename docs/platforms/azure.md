@@ -9,6 +9,10 @@ grand_parent: Technical Resources
 {:toc}
 
 
+# Latest News
+
+- [Azure Learning Resources for US Educational Institutions](https://sway.office.com/O9HlZhMeGdme9GhN)
+
 # New Researcher focused Learning Path
 
 - Learn more about two new [Azure Researcher Learning Paths](https://techcommunity.microsoft.com/t5/educator-developer-blog/announcing-two-new-researcher-learning-paths/ba-p/2498357)
