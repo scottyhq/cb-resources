@@ -16,3 +16,7 @@ Publication is [here](https://cloudbank-project.github.io/cb-resources/)
 ```
 ![Binder as sandbox Jupyter notebook server](cbs-jupyter-static/jupyter_binder_notebook_listing.png)
 ```
+
+## How To Modify Vendor-specific Content
+
+* Go to ***/docs/patterns*** and edit the markdown
