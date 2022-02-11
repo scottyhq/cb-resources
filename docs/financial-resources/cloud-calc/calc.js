@@ -165,6 +165,7 @@
 
     context.total_cost_rounded = Math.ceil(context.total_cost / 1000) * 1000;
 
+    console.log(JSON.stringify(context))
     window.location.href = window.location.pathname + "#" + encodeURIComponent(JSON.stringify(context))
 
     let share_url = new URL("mailto:help@cloudbank.org")
