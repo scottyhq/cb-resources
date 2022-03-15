@@ -2,7 +2,7 @@
 title: Quantum computing
 parent: Solutions
 grand_parent: Technical Resources
-icon: pattern-quantum.png
+icon: solution-quantum.png
 ---
 
 TODO: Build out quantum computing resources
