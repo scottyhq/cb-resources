@@ -12,7 +12,7 @@ development environments and simulators used for low-cost testing of quantum alg
 be ugraded to more comprehensive material soon (MAR-2022).
 
 
-* Azure cloud: Liqui|> quantum simulation; Q# quantum algorithm language; access to Honeywell and IonQ trapped ion quantum systems
+* Azure cloud: **`Liqui|>`** quantum simulation; Q# quantum algorithm language; access to Honeywell and IonQ trapped ion quantum systems
 * Google cloud (GCP): IonQ is available through the Google Cloud Marketplace. Get started on the Quantum Cloud API + Console
 * AWS cloud: Braket, a fully managed service that helps you get started with quantum computing
 * IBM cloud: IBM Quantum stack includes learning tools and community organization
