@@ -16,3 +16,7 @@ be ugraded to more comprehensive material soon (MAR-2022).
 * Google cloud (GCP): IonQ is available through the Google Cloud Marketplace. Get started on the Quantum Cloud API + Console
 * AWS cloud: Braket, a fully managed service that helps you get started with quantum computing
 * IBM cloud: IBM Quantum stack includes learning tools and community organization
+
+### Blogs and Links of Interest
+
+- [Azure announces topological qbit progress](https://www.hpcwire.com/off-the-wire/microsofts-announces-progress-on-a-new-type-of-qubit/)
