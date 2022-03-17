@@ -11,6 +11,21 @@ h2 img {
     vertical-align: middle;
 }
 
+.icon-buffeted-list img {
+    width: 4em;
+    border-radius: 50%;
+    border:  5px solid $body-heading-color;
+    margin: .5em .5em .5em .5em;
+    float: left;
+}
+.icon-buffeted-list ul {
+    margin-left: 7em;
+}
+.icon-buffeted-list ul ul {
+    margin-left: 0em;
+}
+
+
 .root-site-header {
     border-bottom: solid 1px #AAAAAA;
     display: flex;
