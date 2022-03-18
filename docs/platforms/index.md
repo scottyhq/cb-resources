@@ -3,7 +3,7 @@ title: Platform-specific Resources
 parent: Technical Resources
 has_children: true
 has_toc: false
-nav_order: 4
+nav_order: 5
 ---
 
 | TRAINING                                                     | EVENTS                                                       | BLOGS                                                        | MORE RESOURCES                                               |                                                              |
