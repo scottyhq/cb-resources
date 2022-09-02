@@ -80,7 +80,12 @@ TODO: Cirq
 
 ### IBM 
 
-IBM offers cloud access to proprietary quantum hardware through its [Qiskit Runtime service](https://cloud.ibm.com/quantum). This includes a rich circuit development application and lots of learning resources.
+IBM offers cloud access to proprietary quantum hardware through its [Qiskit Runtime service](https://cloud.ibm.com/quantum). This includes a rich circuit development application and lots of learning resources:
+ 
+ - [Cloud quantum service page](https://cloud.ibm.com/catalog/services/quantum-computing)
+ - [Qiskit pricing information](https://cloud.ibm.com/docs/quantum-computing?topic=quantum-computing-cost)
+ - [Introduction to Qiskit](https://research.ibm.com/blog/qiskit-runtime-for-useful-quantum-computing)
+ - [Recorded Qiskit tech demo](https://www.youtube.com/watch?v=2eeIlWM5l94) (video)
 
 #### Hardware support
 
