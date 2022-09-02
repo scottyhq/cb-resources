@@ -37,6 +37,13 @@ grand_parent: Technical Resources
 - [Notebook Environment](https://dataplatform.cloud.ibm.com/docs/content/wsj/landings/wsl.html)
 - [IBM Quantum Experience](https://quantum-computing.ibm.com/)
 
+## Quantum
+
+ - [Cloud quantum service page](https://cloud.ibm.com/catalog/services/quantum-computing)
+ - [Qiskit pricing information](https://cloud.ibm.com/docs/quantum-computing?topic=quantum-computing-cost)
+ - [Introduction to Qiskit](https://research.ibm.com/blog/qiskit-runtime-for-useful-quantum-computing)
+ - [Recorded Qiskit tech demo](https://www.youtube.com/watch?v=2eeIlWM5l94) (video)
+
 # IBM Developer Resources
 
 More than 100 open source projects, a library of knowledge resources, developer advocates ready to help, and a global community of developers are available at:
