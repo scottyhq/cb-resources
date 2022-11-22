@@ -98,7 +98,7 @@ Although all cloud platforms offer roughly equivalent functionality, the exact t
 
 
     {% include icon_card.html
-        link="platforms/aws"
+        link="platforms/azure"
         title="Microsoft Azure"
         subclass="icon-borderless"
         icon="microsoft-azure.png" %}   
