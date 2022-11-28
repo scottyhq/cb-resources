@@ -9,34 +9,27 @@ has_toc: false
 
 Cloudbank's focus is on helping researchers and educators utilize the cloud as a tool for the work they're already doing. The resources in this section help you identify exactly how your work would look in the cloud, and the learning resources to get started on building it.
 
+## Cloud 101
+
+Our Cloud 101 video series is a conceptual introduction to the cloud from a researcher's perspective. The series is split into six parts, reflecting at a coarse grain the topics that we keep in mind when using the cloud for a project.
+
+These videos cover concrete examples, but stay at a relatively high level to keep at an informative pace. For more detailed walkthroughs of technical content, see our [Cloudbank Solutions](./solutions).
+
+<div class="card-bin" markdown="0">
+{% assign subpages = site.pages | where: 'parent', 'Cloud 101' | sort: "nav_order" %}
+{% for subpage in subpages %}
+    {% capture subpage_url %}{{ site.baseurl }}{{ subpage.url }}{% endcapture %}
+    {% include icon_card.html
+        link=subpage_url
+        title=subpage.title
+        icon=subpage.icon %}   
+{% endfor %}
+</div>
+
+
 ## Design Patterns
 
 Here are some of the most common patterns we see appear in research cloud infrastructure. Follow the links for guides on how to map this work onto cloud services.
-
-<!-- - **Job-based computation**
-
-  Submitting computational workloads to run on powerful computers; HPC clusters
-
-- **Data exploration**
-
-  Working with code and data interactively to explore the properties of a data set
-
-- **ML and Deep Learning**
-
-  TODO: Basically data exploration
-
-- **Data dissemination**
-
-  Making a dataset available for colleagues outside of your lab to use; science gateways
-
-- **Web applications**
-
-  Self-hosting web applications for your lab or research community to use; ML annotation software
-
-- **Working with privacy-sensitive data**
-
-  Government compliance and standards; securing data
- -->
 
 <div class="card-bin" markdown="0">
 {% assign subpages = site.pages | where: 'parent', 'Design Patterns' %}
