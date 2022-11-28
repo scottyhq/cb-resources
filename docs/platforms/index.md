@@ -6,6 +6,10 @@ has_toc: false
 nav_order: 5
 ---
 
+# Platform-specific Resources
+
+Although all cloud platforms offer roughly equivalent functionality, the exact terminology and services available for a given use case differ across them. Below are references and guides tailored to the specific platforms supported by CloudBank.
+
 | TRAINING                                                     | EVENTS                                                       | BLOGS                                                        | MORE RESOURCES                                               |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![AWS Logo](https://www.cloudbank.org/files/public_cloud/aws-logo.png) | [Getting Started](https://aws.amazon.com/getting-started/)  [Tutorials](https://aws.amazon.com/getting-started/hands-on/)  [Certification Track](https://aws.amazon.com/certification/) | [Tech Talks](https://aws.amazon.com/events/online-tech-talks/)  [Scheduled Classes](https://aws.amazon.com/training/) | [AWS Blogs](https://aws.amazon.com/blogs/aws/)  [Training Notifications](https://pages.awscloud.com/NAMER-event-OE-subscription-to-free-t-c-webinars-2020-interest.html) | [Training pathway for researchers and IT](https://aws.amazon.com/blogs/publicsector/no-cost-online-aws-training-pathway-researchers-research-it/)  [CloudBank External Training Materials (AWS)](aws.md) |
