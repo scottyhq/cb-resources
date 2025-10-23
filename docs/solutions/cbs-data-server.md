@@ -1,9 +1,4 @@
----
-title: Serve data using an Application Programming Interface (API)
-parent: Solutions
-grand_parent: Technical Resources
-icon: solution-api.png
----
+# Data Servers
 
 * The premise here is: You have some data, you'd like to make it available over the Internet, how hard is this?
     * The good news is: You can be up and running with a toy example in a matter of a day

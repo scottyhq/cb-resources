@@ -1,13 +1,6 @@
----
-title: HPC and computationally intensive workloads
-parent: Design Patterns
-icon: pattern-hpc.png
-grand_parent: Technical Resources
----
-
 # HPC and computationally intensive workloads
 
-Cloud platforms can be set up to run a job scheduling system similar to Xsede or an on-campus super computing cluster. One of the major benefits to this is that these systems can automate the allocation and release of virtual machines, minimizing the cost and time spent crunching data. 
+Cloud platforms can be set up to run a job scheduling system similar to Xsede or an on-campus super computing cluster. One of the major benefits to this is that these systems can automate the allocation and release of virtual machines, minimizing the cost and time spent crunching data.
 
 In general, jobs are packaged in the form of Docker container images. For an introduction to Docker, check out CloudBank's [Containerization Solution](../solutions/cbs-containerization/).
 
@@ -20,7 +13,7 @@ A turn-key job submission service requires little to no setup on your end. These
 - Azure:
     - [Azure Batch](https://docs.microsoft.com/en-us/learn/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/)
 - Google Cloud Platform:
-    - Although not branded a generic HPC system, GCP's AI Platform can be used to [submit general computation jobs](https://cloud.google.com/ai-platform/training/docs/training-jobs) 
+    - Although not branded a generic HPC system, GCP's AI Platform can be used to [submit general computation jobs](https://cloud.google.com/ai-platform/training/docs/training-jobs)
     - There is also an unofficial tool to do job submission: [dsub](https://github.com/DataBiosphere/dsub)
 - IBM:
     - TODO

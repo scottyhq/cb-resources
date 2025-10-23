@@ -1,10 +1,3 @@
----
-title: Genomics
-parent: Design Patterns
-icon: pattern-genom.png
-grand_parent: Technical Resources
----
-
 # Genomics research
 
 The cloud brings to genomics teams the ability to churn through bursts of workloads faster than on-premise computing could, due to the availability of massively parallel resources.
@@ -26,5 +19,5 @@ There is a substantial amount of overlap between the needs of genomics projects 
 
 ## Case studies
 
-- [COVID-19 Genomic Analysis](https://www.cloudbank.org/training/rroccet21-covid-19-genomic-analysis): Dr. Niema Moshiri describes the high-throughput cloud pipeline his team built to sequence the genomes of COVID-19 samples received from testing sites in California. 
+- [COVID-19 Genomic Analysis](https://www.cloudbank.org/training/rroccet21-covid-19-genomic-analysis): Dr. Niema Moshiri describes the high-throughput cloud pipeline his team built to sequence the genomes of COVID-19 samples received from testing sites in California.
 - [Stanford researchers accelerate autism research by sharing genomic data in the cloud](https://www.cloudbank.org/training/use-case/aws-open-data-stanford-researchers-accelerate-autism-research-sharing-genomic-data-cloud): By running sequencing jobs in parallel, a team at Stanford was able to conduct a linkage study in almost a quarter of the time it would have taken on-premise resources.

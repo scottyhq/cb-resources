@@ -1,0 +1,49 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 057aa14e-a26f-49cd-876e-eb577bbb4814
+  title: Educational Resources
+  description:
+  keywords: ["cloud", "education", "aws", "azure"]
+  authors: ["Rob Fatland", "Naomi Alterman", "Scott Henderson"]
+  github: https://github.com/scottyhq/cb-resources
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+  toc:
+    - file: docs/index.md
+    - title: Cloud 101 Videos
+      children:
+        - file: docs/cloud101/index.md
+        - file: docs/cloud101/intro.md
+        - file: docs/cloud101/cost.md
+        - file: docs/cloud101/services.md
+        - file: docs/cloud101/collaboration.md
+        - file: docs/cloud101/security.md
+        - file: docs/cloud101/scale.md
+    - title: Design Patterns
+      children:
+        - pattern: docs/patterns/*.md
+    - file: docs/bestpractices/index.md
+    - title: Solutions
+      children:
+        - url: https://github.com/cloudbank-project/containers-tutorial
+          title: Containerization
+        - url: https://github.com/cloudbank-project/hpc
+          title: High Performance Computing (HPC)
+        - file: docs/solutions/cbs-quantum.md
+        - file: docs/solutions/cbs-quotas.md
+        - file: docs/solutions/cbs-security.md
+        - file: docs/solutions/cbs-jupyter.md
+        - title: Cbs Jupyter Static
+          children:
+            - file: docs/solutions/cbs-jupyter-static/README.md
+    - file: docs/platforms/index.md
+
+site:
+  template: book-theme
+  options:
+    # Best to set authors per-page rather than on *all* pages
+    # https://github.com/jupyter-book/mystmd/issues/1664
+    hide_authors: true
+    #logo_text: CloudbankResources
+    favicon: https://www.cloudbank.org/sites/default/files/file_fields/logo.png?size=46
+    logo: https://www.cloudbank.org/sites/default/files/file_fields/logo.png
