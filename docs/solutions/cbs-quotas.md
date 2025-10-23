@@ -1,4 +1,4 @@
-# CloudBank Solution: Quotas
+# Quotas
 
 When you open a new account with a provider (AWS, GCP, Azure etc) there are typically
 quotas imposed on your account by default.

@@ -1,4 +1,4 @@
-[project]
+[workspace]
 channels = ["conda-forge"]
 description = "Repository for CloudBank educational and technical material."
 name = "Cloudbank Educational Resources"
