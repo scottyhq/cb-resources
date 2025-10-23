@@ -1,9 +1,3 @@
----
-title: IoT
-parent: Design Patterns
-icon: pattern-iot.png
-grand_parent: Technical Resources
----
 
 # Internet of Things and High-Availability Services
 

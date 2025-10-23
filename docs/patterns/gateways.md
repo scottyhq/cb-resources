@@ -1,10 +1,3 @@
----
-title: Science Gateways
-parent: Design Patterns
-icon: pattern-gateway.png
-grand_parent: Technical Resources
----
-
 # Science Gateways and Dataset Dissemination
 
 The cloud can be a big help in making a datasets available to others in your field. The primary challenge is in dealing with ongoing storage fees and the extra egress charges that cloud platforms levy for downloads of your data. There are a few strategies towards dealing with this:

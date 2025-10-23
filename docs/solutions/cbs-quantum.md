@@ -1,9 +1,4 @@
----
-title: Quantum computing
-parent: Solutions
-grand_parent: Technical Resources
-icon: solution-quantum.png
----
+# Quantum Computing
 
 As quantum computing systems become increasingly practical, they are also becoming available through cloud computing platforms. The benefit of this is that, like any other cloud computing resource, you can access it through your CloudBank account. In this solution, we outline the details you should consider as you explore the use of these systems through public cloud platforms.
 
@@ -52,7 +47,7 @@ Azure Quantum's pricing has different models depending on the hardware being use
 
 #### Simulator
 
-TODO: `Liqui|>` 
+TODO: `Liqui|>`
 
 #### Programming interface
 
@@ -68,7 +63,7 @@ GCP currently only provides access to IonQ devices, presumably with their in-hou
 
 #### Pricing
 
-GCP's billing for IonQ use is per-gate and per-shot, the details of which can be found on the subscription page for the IonQ service. 
+GCP's billing for IonQ use is per-gate and per-shot, the details of which can be found on the subscription page for the IonQ service.
 
 #### Simulator
 
@@ -78,10 +73,10 @@ TODO
 
 TODO: Cirq
 
-### IBM 
+### IBM
 
 IBM offers cloud access to proprietary quantum hardware through its [Qiskit Runtime service](https://cloud.ibm.com/quantum). This includes a rich circuit development application and lots of learning resources:
- 
+
  - [Cloud quantum service page](https://cloud.ibm.com/catalog/services/quantum-computing)
  - [Qiskit pricing information](https://cloud.ibm.com/docs/quantum-computing?topic=quantum-computing-cost)
  - [Introduction to Qiskit](https://research.ibm.com/blog/qiskit-runtime-for-useful-quantum-computing)

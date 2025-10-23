@@ -1,14 +1,7 @@
----
-title: Review and increase quotas
-parent: Solutions
-grand_parent: Technical Resources
-icon: solution-quotas.png
----
-
 # CloudBank Solution: Quotas
 
-When you open a new account with a provider (AWS, GCP, Azure etc) there are typically 
-quotas imposed on your account by default. 
+When you open a new account with a provider (AWS, GCP, Azure etc) there are typically
+quotas imposed on your account by default.
 This is a safety measure to you avoid over-allocating resources by accident at the outset.
 If you come across an apparent quota limitation, you can read up on it at the provider's site.
 This will describe how to ask for a quota raise (no cost).

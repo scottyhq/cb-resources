@@ -1,11 +1,3 @@
----
-title: Platform-specific Resources
-parent: Technical Resources
-has_children: true
-has_toc: false
-nav_order: 5
----
-
 # Platform-specific Resources
 
 Although all cloud platforms offer roughly equivalent functionality, the exact terminology and services available for a given use case differ across them. Below are references and guides tailored to the specific platforms supported by CloudBank.
