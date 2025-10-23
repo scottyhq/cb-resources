@@ -33,9 +33,6 @@ project:
         - file: docs/solutions/cbs-quotas.md
         - file: docs/solutions/cbs-security.md
         - file: docs/solutions/cbs-jupyter.md
-        - title: Cbs Jupyter Static
-          children:
-            - file: docs/solutions/cbs-jupyter-static/README.md
     - file: docs/platforms/index.md
 
 site:

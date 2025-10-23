@@ -1,4 +1,4 @@
-# Introduction
+# Overview
 
 Our Cloud 101 video series is a conceptual introduction to the cloud from a researcher's perspective. The series is split into six parts, reflecting at a coarse grain the topics that we keep in mind when using the cloud for a project.
 
