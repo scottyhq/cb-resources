@@ -26,6 +26,3 @@ For starters, check out our [CloudBank Solution on securing your data](../../sol
 - [Azure data security and encryption best practices
 ](https://docs.microsoft.com/en-us/azure/security/fundamentals/data-encryption-best-practices)
 
-## Case studies
-
-- TODO: UW Medicine case study

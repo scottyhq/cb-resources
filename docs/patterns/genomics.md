@@ -14,8 +14,7 @@ There is a substantial amount of overlap between the needs of genomics projects 
 - Google Cloud Platform:
     - [Cloud Life Sciences documentation](https://cloud.google.com/life-sciences/docs)
     - [Setting up GATK on GCP](https://cloud.google.com/life-sciences/docs/tutorials/gatk)
-- IBM:
-    - TODO
+
 
 ## Case studies
 
