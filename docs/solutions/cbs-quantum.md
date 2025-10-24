@@ -24,13 +24,6 @@ Braket currently provides access to trapped-ion devices from IonQ, superconducti
 
 On hardware, AWS charges a flat "task" fee to load your algorithm, and then a "shot" fee for every time it actually runs. Cloud-based simulators are charged per minute of use. Local simulators are available to use for free. For more information, see the [pricing table](https://aws.amazon.com/braket/pricing/)
 
-#### Simulator
-
-TODO
-
-#### Programming interface
-
-TODO Python SDK
 
 
 ### Azure
@@ -45,13 +38,7 @@ Azure Quantum currently provides access to trapped-ion devices from IonQ and Hon
 
 Azure Quantum's pricing has different models depending on the hardware being used. On their IonQ machines, computation is charged per-shot. Other machines like Honeywell's Quantinuum have a more subtle credit-based pricing model. For the details, see the [pricing table](https://docs.microsoft.com/en-us/azure/quantum/pricing) for quantum hardware. Azure's quantum-inspired solvers are billed per-hour, and can be referenced from [this pricing table](https://azure.microsoft.com/en-us/pricing/details/azure-quantum/#pricing)
 
-#### Simulator
 
-TODO: `Liqui|>`
-
-#### Programming interface
-
-TODO: Q#
 
 ### GCP
 
@@ -65,13 +52,7 @@ GCP currently only provides access to IonQ devices, presumably with their in-hou
 
 GCP's billing for IonQ use is per-gate and per-shot, the details of which can be found on the subscription page for the IonQ service.
 
-#### Simulator
 
-TODO
-
-#### Programming interface
-
-TODO: Cirq
 
 ### IBM
 
@@ -90,17 +71,9 @@ Qiskit Runtime provides access to IBM's various lines of proprietary quantum har
 
 On hardware, IBM charges per runtime-second. Their cloud-based simulators are free to use. For more information, see the [pricing table](https://cloud.ibm.com/catalog/services/quantum-computing)
 
-#### Simulator
 
-TODO
 
-#### Programming interface
 
-TODO qiskit
-
-### PennyLane
-
-TODO: cross-platform programming interface (supports AWS, GCP, Q#)
 
 ### Learning Resources
 

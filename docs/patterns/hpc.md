@@ -15,8 +15,7 @@ A turn-key job submission service requires little to no setup on your end. These
 - Google Cloud Platform:
     - Although not branded a generic HPC system, GCP's AI Platform can be used to [submit general computation jobs](https://cloud.google.com/ai-platform/training/docs/training-jobs)
     - There is also an unofficial tool to do job submission: [dsub](https://github.com/DataBiosphere/dsub)
-- IBM:
-    - TODO
+
 
 ## Under the hood: setting up a workload scheduler (eg, Slurm)
 
@@ -31,8 +30,7 @@ If you're running applications that require more fine tuning than just a job sub
 - Google Cloud Platform:
     - [HPC best practices on GCP](https://cloud.google.com/architecture/best-practices-for-using-mpi-on-compute-engine)
     - [Creating an HPC-tuned VM](https://cloud.google.com/compute/docs/instances/create-hpc-vm)
-- IBM:
-    - TODO
+
 
 ## Case Studies
 

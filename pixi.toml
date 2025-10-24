@@ -9,7 +9,6 @@ version = "0.1.0"
 serve='myst start --execute'
 build='myst build --execute --html'
 check-links='myst build --check-links'
-pdf='myst build --pdf'
 spellcheck='codespell --skip  _build,references.bib'
 
 [dependencies]
