@@ -1,9 +1,4 @@
----
-title: Quantum computing
-parent: Solutions
-grand_parent: Technical Resources
-icon: solution-quantum.png
----
+# Quantum Computing
 
 As quantum computing systems become increasingly practical, they are also becoming available through cloud computing platforms. The benefit of this is that, like any other cloud computing resource, you can access it through your CloudBank account. In this solution, we outline the details you should consider as you explore the use of these systems through public cloud platforms.
 
@@ -29,13 +24,6 @@ Braket currently provides access to trapped-ion devices from IonQ, superconducti
 
 On hardware, AWS charges a flat "task" fee to load your algorithm, and then a "shot" fee for every time it actually runs. Cloud-based simulators are charged per minute of use. Local simulators are available to use for free. For more information, see the [pricing table](https://aws.amazon.com/braket/pricing/)
 
-#### Simulator
-
-TODO
-
-#### Programming interface
-
-TODO Python SDK
 
 
 ### Azure
@@ -50,13 +38,7 @@ Azure Quantum currently provides access to trapped-ion devices from IonQ and Hon
 
 Azure Quantum's pricing has different models depending on the hardware being used. On their IonQ machines, computation is charged per-shot. Other machines like Honeywell's Quantinuum have a more subtle credit-based pricing model. For the details, see the [pricing table](https://docs.microsoft.com/en-us/azure/quantum/pricing) for quantum hardware. Azure's quantum-inspired solvers are billed per-hour, and can be referenced from [this pricing table](https://azure.microsoft.com/en-us/pricing/details/azure-quantum/#pricing)
 
-#### Simulator
 
-TODO: `Liqui|>` 
-
-#### Programming interface
-
-TODO: Q#
 
 ### GCP
 
@@ -68,20 +50,14 @@ GCP currently only provides access to IonQ devices, presumably with their in-hou
 
 #### Pricing
 
-GCP's billing for IonQ use is per-gate and per-shot, the details of which can be found on the subscription page for the IonQ service. 
+GCP's billing for IonQ use is per-gate and per-shot, the details of which can be found on the subscription page for the IonQ service.
 
-#### Simulator
 
-TODO
 
-#### Programming interface
-
-TODO: Cirq
-
-### IBM 
+### IBM
 
 IBM offers cloud access to proprietary quantum hardware through its [Qiskit Runtime service](https://cloud.ibm.com/quantum). This includes a rich circuit development application and lots of learning resources:
- 
+
  - [Cloud quantum service page](https://cloud.ibm.com/catalog/services/quantum-computing)
  - [Qiskit pricing information](https://cloud.ibm.com/docs/quantum-computing?topic=quantum-computing-cost)
  - [Introduction to Qiskit](https://research.ibm.com/blog/qiskit-runtime-for-useful-quantum-computing)
@@ -95,17 +71,9 @@ Qiskit Runtime provides access to IBM's various lines of proprietary quantum har
 
 On hardware, IBM charges per runtime-second. Their cloud-based simulators are free to use. For more information, see the [pricing table](https://cloud.ibm.com/catalog/services/quantum-computing)
 
-#### Simulator
 
-TODO
 
-#### Programming interface
 
-TODO qiskit
-
-### PennyLane
-
-TODO: cross-platform programming interface (supports AWS, GCP, Q#)
 
 ### Learning Resources
 

@@ -1,10 +1,3 @@
----
-title: Security and Sensitive data
-parent: Design Patterns
-icon: pattern-security.png
-grand_parent: Technical Resources
----
-
 # Working with Privacy-sensitive Data
 
 Many projects are well suited to cloud resources but have to be extra carfeul about how their information is stored, especially projects dealing with privacy-sensitive human data. Such data may need to be specially handled, or subject to regulations and compliance laws. This comes up especially when dealing with privacy-sensitive subjects like medical work, or data received from federal programs with their own sharing agreements.
@@ -29,10 +22,7 @@ For starters, check out our [CloudBank Solution on securing your data](../../sol
 
 - [GCP: Best practices to protect your organization against ransomware threats](https://cloud.google.com/blog/products/identity-security/5-pillars-of-protection-to-prevent-ransomware-attacks)
 - [IBM's definitive guide to ransomware](https://www.ibm.com/downloads/cas/EV6NAQR4) (PDF)
-- [AWS: Top 10 security best practices for securing data in Amazon S3](https://aws.amazon.com/blogs/security/top-10-security-best-practices-for-securing-data-in-amazon-s3/) 
+- [AWS: Top 10 security best practices for securing data in Amazon S3](https://aws.amazon.com/blogs/security/top-10-security-best-practices-for-securing-data-in-amazon-s3/)
 - [Azure data security and encryption best practices
 ](https://docs.microsoft.com/en-us/azure/security/fundamentals/data-encryption-best-practices)
 
-## Case studies
-
-- TODO: UW Medicine case study

@@ -1,8 +1,6 @@
----
-title: Costing
-parent: Cloud 101
-nav_order: 2
-icon: cloud101-cost.png
----
+# 2. Managing Costs
 
-{% include youtube.html slug="29eJo83RcaU" %}
+:::{iframe} https://www.youtube.com/embed/29eJo83RcaU
+:width: 100%
+Managing Cloud Costs
+:::

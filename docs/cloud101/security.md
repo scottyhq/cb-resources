@@ -1,8 +1,6 @@
----
-title: Security
-parent: Cloud 101
-nav_order: 5
-icon: cloud101-security.png
----
+# 5. Security
 
-{% include youtube.html slug="oZSBlEK6grc" %}
+:::{iframe} https://www.youtube.com/embed/oZSBlEK6grc
+:width: 100%
+Keeping work secure in the Cloud
+:::

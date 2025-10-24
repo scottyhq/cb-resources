@@ -1,9 +1,3 @@
----
-title: IoT
-parent: Design Patterns
-icon: pattern-iot.png
-grand_parent: Technical Resources
----
 
 # Internet of Things and High-Availability Services
 
@@ -44,10 +38,7 @@ Here are guides to getting started with serverless resources on various cloud pl
 - IBM
     - [Serverless Web Application Tutorial](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-api-webapp)
 
-## Databases
-
-- TODO
-
+## Case studies
 ## Case studies
 
 - [BALTO: Public Transit Monitoring in Baltimore](https://www.cloudbank.org/training/rroccet21-public-transit-monitoring-baltimore): Dr. Vanessa Frias-Martinez uses the cloud to host the back-end servers of a mobile app crowdsourcing public transit monitoring in Baltimore.

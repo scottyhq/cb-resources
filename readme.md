@@ -1,22 +1,40 @@
-# cb-resources
+# CloudBank Technical Resources
 
-Repository for CloudBank educational and technical material.
+This repository contains educational and technical materials for [CloudBank](https://cloudbank.org), which are published to https://cloudbank-project.github.io/cb-resources/
 
-Publication is [here](https://cloudbank-project.github.io/cb-resources/)
+## How to Contribute
 
+This website is built using [MyST Markdown](https://mystmd.org). If you notice problems, please open an [Issue](https://github.com/cloudbank-project/cb-resources/issues). If you'd like to make changes, please open a Pull Request:
 
-## How To Inline Images
+```bash
+gh repo clone cloudbank-project/cb-resources
+cd cb-resources
+git checkout -b new-changes
+# Make your changes
+git commit -a -m "Description of changes"
+git push
+# Open a pull request
+```
 
-* Go to the [folder containing `cbs-topic-name-here.md` content](https://github.com/cloudbank-project/cb-resources/tree/main/docs/technical-resources/solutions)
-* Use **`cbs-jupyter.md`** as a template
-    * Create `README.md` in a sub-folder called `cbs-topic-name-here-static` and copy contents in from `README.md` in `cbs-jupyter-static` 
-    * Upload images to this folder
-    * Create image inline markdown in `cbs-topic-name-here.md` as shown below
+When a Pull Request is merged, the website is automatically deployed using a [GitHub Action](https://github.com/cloudbank-project/cb-resources/actions/workflows/publish.yml)
+
+### MyST Markdown Syntax
+
+All source files are found within the `docs/` directory. Please see the [MyST documentation](https://mystmd.org/guide) for details on syntax and features.
+
+### Preview Changes Locally
+
+If you'd like to build this website and preview your changes locally, you can use the following commands:
+
+First, install [pixi.sh](https://pixi.sh/latest/installation/) to manage the virtual environment and dependencies, then run:
 
 ```
-![Binder as sandbox Jupyter notebook server](cbs-jupyter-static/jupyter_binder_notebook_listing.png)
+pixi run serve
 ```
 
-## How To Modify Vendor-specific Content
+You might also want to run the following checks:
 
-* Go to ***/docs/patterns*** and edit the markdown
+```
+pixi run check-links
+pixi run spellcheck
+```

@@ -1,27 +1,22 @@
----
-title: Use a cloud virtual machine as a Jupyter notebook server
-parent: Solutions
-grand_parent: Technical Resources
-icon: solution-jupyter.png
----
+# Use a cloud virtual machine as a Jupyter notebook server
 
-# Introduction
+## Introduction
 
 [Jupyter notebooks](https://jupyter.org) are really useful interactive coding environments that bring along
-documentation capacity in readable, non-code format. This means we can use Jupyter notebooks to develop and 
+documentation capacity in readable, non-code format. This means we can use Jupyter notebooks to develop and
 test code and legibly explain what's happening all in the same place. So far so good; and there are lots of great
-videos online showing this environment in action. 
+videos online showing this environment in action.
 
 
-If you would like to build a Jupyter notebook environment (a *notebook server*) on a cloud machine: You're 
-in the right place. The directions here are "from the ground up" and serve a second purpose as well, which 
-is (we at CloudBank hope) to de-mystify building on and using the cloud. 
+If you would like to build a Jupyter notebook environment (a *notebook server*) on a cloud machine: You're
+in the right place. The directions here are "from the ground up" and serve a second purpose as well, which
+is (we at CloudBank hope) to de-mystify building on and using the cloud.
 
 
 Before we begin, however: Remember
 that cloud providers like to do things for us *"as a service"*. You can get into Jupyter notebooks
-in this manner in 
-[Azure](https://azure.microsoft.com/en-us/services/lab-services/) or on the 
+in this manner in
+[Azure](https://azure.microsoft.com/en-us/services/lab-services/) or on the
 [Google Cloud Platform](https://colab.research.google.com) or on
 [Amazon Web Services](https://aws.amazon.com/sagemaker/) or on the
 [IBM Cloud](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_latest/wsj/analyze-data/jupyterlab.html)
@@ -42,26 +37,26 @@ That said, we'll proceed with the Do It Yourself On The Cloud approach. Here is 
     * [Key concepts](#key-concepts)
 * [Let's do it!](#walk-through)
     * [short version](#short-version)
-    * [extended version](#extended-version) 
+    * [extended version](#extended-version)
 
 
 ### What is the plan?
 
 
 Learning to compute on the cloud includes understanding **machine images**:
-Snapshots of an entire operating system including installed software, customization, 
-code and data. This CloudBank solution serves two purposes: It introduce machine images 
-and it demonstrates using a cloud virtual machine (herein **VM**) as a traditional desktop--possibly 
-quite a powerful one--for running a [Jupyter notebook](https://jupyter.org) server. 
-The interface to this working environment will be via a web browser on our **Local** machine. 
+Snapshots of an entire operating system including installed software, customization,
+code and data. This CloudBank solution serves two purposes: It introduce machine images
+and it demonstrates using a cloud virtual machine (herein **VM**) as a traditional desktop--possibly
+quite a powerful one--for running a [Jupyter notebook](https://jupyter.org) server.
+The interface to this working environment will be via a web browser on our **Local** machine.
 We move information back and forth securely from Local to Cloud using an **`ssh` tunnel**.
 
 
 ### Why instructions are necessary
 
 
-At a high level we are configuring a research computer. Because it is on the 
-cloud there is some extra vocabulary involved and some extra steps, starting with securing 
+At a high level we are configuring a research computer. Because it is on the
+cloud there is some extra vocabulary involved and some extra steps, starting with securing
 a cloud account. There is enough complexity to merit a walk-through. Here's the narrative:
 
 
@@ -83,12 +78,12 @@ a cloud account. There is enough complexity to merit a walk-through. Here's the 
 
 A VM may be in one of two states: Started or Stopped. We pay for a VM by the hour: Only when it is Started.
 Stopped is like having the power turned off: You can resume using it later without loss of data.
-Terminating a VM means the VM no longer exists: Everything is gone. 
+Terminating a VM means the VM no longer exists: Everything is gone.
 
 
 Starting a VM from an image recreates the machine in its state when the image was created.
 When you do this you have a choice of which *type* of VM to use for the image. You can use a cheap low-power
-VM if you do not need a lot of computing power; say you just want to write and test some code. 
+VM if you do not need a lot of computing power; say you just want to write and test some code.
 Or you can choose a powerful (more expensive) VM if you have some heavy computation to do.
 
 
@@ -126,19 +121,19 @@ and share.
     * AWS also supports temporary disk storage through the [*instance store*](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
     * Distinguish between **Elastic Block Strage (EBS)** and **(ephemeral) instance store volumes**
         * Instance store volumes evaporate on Stop/Start. EBS volumes persist through Stop/Start.
-    * Additional storage modes: 
+    * Additional storage modes:
         * AWS [EFS (Elastic File System)](https://aws.amazon.com/efs/) shared by multiple instances; ~ UNIX NFS
         * AWS [S3 Object Storage](https://aws.amazon.com/s3/)
 
-   
+
 ### Walk-through
-   
+
 Again these use AWS as the "example cloud" but these notes will apply broadly to any cloud.
 The short version describes what to do with scant attention to specifics.
 The extended version is more comprehensive.
-   
+
 #### Short version
-   
+
 * Install a bash shell on your **Local** computer (laptop, dekstop etc)
 * Start a cloud VM, note three things:
    * the generic VM username (here we use `ubuntu`)
@@ -149,7 +144,7 @@ The extended version is more comprehensive.
    * AWS: Use the Elastic IP service. GCP and Azure: The term is *static external IP*.
 * `chmod 400 keypair.pem` and `ssh -i keypair.pem ubuntu@12.23.34` to log in to the cloud VM from Local
 * From the command line on the cloud VM install `miniconda`, `jupyter` and other Python libraries
-* Use `git clone https://github.com/organization/repository` on the cloud 
+* Use `git clone https://github.com/organization/repository` on the cloud
    * Need a working example? Use organization = `cloudbank-project`, repository = `ocean`
 * On the VM: Start a Jupyter Lab notebook server as a background process with browser display disabled
     * Example command to listen on port 8887: `(jupyter lab --no-browser --port=8887) &`
@@ -168,10 +163,10 @@ The extended version is more comprehensive.
     * On AWS: [CloudWatch and Lambda functions are commonly used for this purpose](https://aws.amazon.com/premiumsupport/knowledge-center/start-stop-lambda-cloudwatch/)
     * This action prevents charges from accruing overnight when the VM is not in actual use
 * Use the AWS console to make the VM machine image (AMI) available to other people
-   
-   
 
-   
+
+
+
 #### Extended version
 
 * Log on to the AWS console and select Services > Compute > EC2 > Launch Instance
@@ -200,7 +195,7 @@ The extended version is more comprehensive.
 #### On the EC2 instance (VM) mount any added storage drives
 
 * Search engine: 'AWS EC2 EBS mount` gives [this instructive link](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
-   
+
 #### Install the Jupyter Lab notebook serve
 * Install Anaconda or Miniconda
     * search `install Anaconda Linux` and follow the instructions
@@ -233,7 +228,7 @@ The extended version is more comprehensive.
     * Be sure to attach extensive metadata (typically add Tags) to the AMI to make it recognizable
 
 #### Share the AMI with other AWS accounts
-    
+
 * On the AWS console > AMI listing (see left sidebar) > Permissions editor
 * Add the AWS 12-digit account of a destination account where you wish this AMI to be available
 
@@ -265,51 +260,51 @@ As such it can be reduced down to a much smaller section here.
 
 # CloudBank Solution Repo: Research Computing and Cloud Images
 
-This tutorial introduces you, the researcher or student, to using a virtual machine ***image*** 
+This tutorial introduces you, the researcher or student, to using a virtual machine ***image***
 on the cloud as a basis for research computing. This page describes using an image
 that has *already been built for you*. If you want to see how to do the preparatory
-build: Look into the `creating_an_image` sub-folder. 
+build: Look into the `creating_an_image` sub-folder.
 
 
-You may be familiar with a *zip* or *tar* file containing an entire directory. 
+You may be familiar with a *zip* or *tar* file containing an entire directory.
 A *machine image* is analogous; think of it as a zip file of the entire computer's contents
-from operating system to home directory to code to data files. The idea is that once 
-a cloud Virtual Machine (VM) is *configured* for use: It can be stored as a machine 
+from operating system to home directory to code to data files. The idea is that once
+a cloud Virtual Machine (VM) is *configured* for use: It can be stored as a machine
 image. This image is then un-packed back onto a Virtual Machine. The image is used
-to creating a working research computing environment for a scientist to use. 
+to creating a working research computing environment for a scientist to use.
 
 
 Our specific example here takes advantage of the Jupyterlab notebook server. This page
-is a tutorial for going from a pre-built Linux environment with Jupyterlab installed 
+is a tutorial for going from a pre-built Linux environment with Jupyterlab installed
 as an *image* and reconstituting it on the AWS cloud as a Virtual Machine. We will use
 a secure tunnel called an `ssh` tunnel to enable you the researcher to connect to the
-Jupyterlab server through your web browser. 
+Jupyterlab server through your web browser.
 
 
-In the sub-folder called `bootstrap` we go through the process of building this machine image. 
+In the sub-folder called `bootstrap` we go through the process of building this machine image.
 
-In the sub-folder called `waterhackweek` we go from the rebuilt Jupyterlab VM to cloning a 
-repository of notebooks on the VM for a particular research topic. 
+In the sub-folder called `waterhackweek` we go from the rebuilt Jupyterlab VM to cloning a
+repository of notebooks on the VM for a particular research topic.
 
 
 ## Important remark on cost management
 
 
-In what follows on this page: The VM has a single disk drive (filesystem) with a fairly small 
+In what follows on this page: The VM has a single disk drive (filesystem) with a fairly small
 capacity of 32 Gigabytes. However it is common practice to create images that bundle large
 datasets. The sub-folder `bootstrap` tutorial spins up a Virtual Machine, for example, that has
-200 GB of block storage (disk drive) volume mounted as two data filesystems. 
-This allows the image *builder* to include a moderately large dataset with the image 
-and provide some working space as well. 
+200 GB of block storage (disk drive) volume mounted as two data filesystems.
+This allows the image *builder* to include a moderately large dataset with the image
+and provide some working space as well.
 
 
-Our point of emphasis here -- as with all cloud resource allocation actions -- is that one 
-should understand and track the costs associated with cloud resources. 'Block' or 'disk' 
+Our point of emphasis here -- as with all cloud resource allocation actions -- is that one
+should understand and track the costs associated with cloud resources. 'Block' or 'disk'
 storage -- for example -- runs about $20 per month for 200 GB.
 
 
 > Again our main admonition: The cloud is very powerful but it is
-important to understand and manage the cost of using it. 
+important to understand and manage the cost of using it.
 
 
 ## Outline
@@ -326,45 +321,45 @@ important to understand and manage the cost of using it.
 ## For Windows Users
 
 
-A brief interruption anticipating a possible issue: Further down we are going to build 
-something called an "ssh tunnel" to use our Virtual Machine as a Jupyter notebook server. 
+A brief interruption anticipating a possible issue: Further down we are going to build
+something called an "ssh tunnel" to use our Virtual Machine as a Jupyter notebook server.
 If you are doing this on a PC running Windows: No problem, that's perfectly feasible but
 Windows does not natively make this Linux-y step trivial.  So be ready: We will introduce
-the idea of installing a small Linux bash shell on the Windows PC. It is a bit of a 
-"yet another step, really??" situation but on balance it can help save time and avoid frustration. 
+the idea of installing a small Linux bash shell on the Windows PC. It is a bit of a
+"yet another step, really??" situation but on balance it can help save time and avoid frustration.
 [Instructions are here](https://ubuntu.com/tutorials/tutorial-ubuntu-on-windows#1-overview).
 
 
 ## Connecting to a Jupyterlab server built on a cloud Virtual Machine
 
 
-Suppose we would like to visually explore some (ocean) data. This data took years to collect and 
+Suppose we would like to visually explore some (ocean) data. This data took years to collect and
 months to bring together in one location. Hopefully it takes less than an hour to
-deploy and connect to a Jupyterlab notebook server on the cloud. 
+deploy and connect to a Jupyterlab notebook server on the cloud.
 
 
 > Prerequisites: Cloudbank credentials to connect to the cloud and an available `bash` shell.
 
 
-We are using in this case the AWS (Amazon Web Services) cloud. You will log on to the AWS 
-console, start a Virtual Machine (called an EC2 *instance*) and on that machine start a 
-Jupyterlab server. If you were starting from nothing you would be installing Python 
-packages and importing datasets.  Our objective here is to avoid 
-all of that by using a pre-built environment stored on the cloud as an *image*. 
-Once you have identified this image you can start it on virtually any size machine; 
-from a small cheap one say costing $0.04 per hour to a very powerful computer that 
+We are using in this case the AWS (Amazon Web Services) cloud. You will log on to the AWS
+console, start a Virtual Machine (called an EC2 *instance*) and on that machine start a
+Jupyterlab server. If you were starting from nothing you would be installing Python
+packages and importing datasets.  Our objective here is to avoid
+all of that by using a pre-built environment stored on the cloud as an *image*.
+Once you have identified this image you can start it on virtually any size machine;
+from a small cheap one say costing $0.04 per hour to a very powerful computer that
 might cost $2.40 / hour or more. Cloud users choose a computer based on computational needs.
 
 
-Once the computer is running (with everything pre-installed) you will create 
+Once the computer is running (with everything pre-installed) you will create
 an *ssh tunnel*. This is a secure connection that associates a local address on your
-local comoputer with the Jupyterlab 
-server running on the cloud VM. By connecting through this tunnel the cloud VM 
-becomes the backing engine for exploring the data. 
+local comoputer with the Jupyterlab
+server running on the cloud VM. By connecting through this tunnel the cloud VM
+becomes the backing engine for exploring the data.
 
 
 The procedure is presented in 13-or-so steps with interspersed comments.
-Upon completion you will have your own data science research environment. 
+Upon completion you will have your own data science research environment.
 
 
 ### Procedure
@@ -374,7 +369,7 @@ Upon completion you will have your own data science research environment.
     o Sidebar: You can choose Services (upper left) to see a listing of services, i.e. what you can do on the AWS cloud
 
 
-2. Navigate to Amazon Machine Image choices (AMIs): Services > Compute > EC2. Then choose AMIs from the left sidebar. 
+2. Navigate to Amazon Machine Image choices (AMIs): Services > Compute > EC2. Then choose AMIs from the left sidebar.
 
 
 3. In the upper left drop down menu of the AMI pane select 'Private Images' (it may say 'Owned by Me' or 'Public Images' by default). When 'Private Images' is selected, you should see an AMI listed called `jupyter1-cb`. Select this AMI by clicking on it so a blue dot appears at the left edge of the table.
@@ -383,28 +378,28 @@ Upon completion you will have your own data science research environment.
 4. Choose Actions > Launch. Choose a VM type `c5.large` (you may have to scroll down a bit to find this). Choose Review and Launch at the bottom right.
 
 
-> WARNING: If this tutorial is a class-sized activity there is a potential collision scenario. Let's 
+> WARNING: If this tutorial is a class-sized activity there is a potential collision scenario. Let's
 take a moment to outline this and how to resolve it.
 
 
-> The AWS EC2 Launch Wizard goes through seven steps. Step 6 involves choosing a 
+> The AWS EC2 Launch Wizard goes through seven steps. Step 6 involves choosing a
 Security Group. This SG is given a name by default; and a classroom full of people will get
-the same default as they proceed. So the way to avoid this (which will obstruct the next 
-couple of steps) is to click on the Security Group step (step 6) and give a name for the 
-Security Group that is unique. As below with keypair and instance names the best choice 
+the same default as they proceed. So the way to avoid this (which will obstruct the next
+couple of steps) is to click on the Security Group step (step 6) and give a name for the
+Security Group that is unique. As below with keypair and instance names the best choice
 for a Security Group name is simply `yourname`. In our instructions we use the name
 `hedylamarr` as an example of your name. Now you can proceed to step 7 of the wizard;
-which is step 10 in this procedural. 
+which is step 10 in this procedural.
 
 
-5. Choose **Launch** at the bottom right. In the ensuing keypair dialog choose **Create new keypair** 
+5. Choose **Launch** at the bottom right. In the ensuing keypair dialog choose **Create new keypair**
 and name it `hedylamarr`. This will be the key to identifying your instance and logging in to
 it in what follows. Download the keypair file you generated; then click **Launch Instance**
 in the dialog box.
- 
 
-6. Continue in the AWS console: Click **View Instances** at the lower right. This takes 
-you to a table of EC2 instances (Virtual Machines), where one instance is listed per row. 
+
+6. Continue in the AWS console: Click **View Instances** at the lower right. This takes
+you to a table of EC2 instances (Virtual Machines), where one instance is listed per row.
 Therefore one of the rows in this table should be your instance.
 
 
@@ -413,32 +408,32 @@ a class with many people doing the same thing at the same time it can be difficu
 which instance is *your* VM. Once you identify your instance: Name it using `yourname`.
 
 
-7. Locate your instance by the key name: In the table of instances scroll right to find the 
+7. Locate your instance by the key name: In the table of instances scroll right to find the
 `Key name` column. Scan down this column for the keypair you used to identify the row for your EC2 instance.
-Return to the left-most **Name** column of this row -- the row for your instance -- and hover your cursor to bring up 
+Return to the left-most **Name** column of this row -- the row for your instance -- and hover your cursor to bring up
 a pencil icon in the "Name" column. Click on that and name your instance appropriately.
 
 
 8. One the instance status dot changes to green (running): Note its `ip address` in the instance table.
-Here we take this to be `12.23.34.45` as an example. 
+Here we take this to be `12.23.34.45` as an example.
 
 
 > Now we are ready to log in to this VM or EC2 instance from a bash shell. Our main goal on the
-instance is to start a 'quiet' Jupyterlab session. There will not initially be a browser interface; 
-that comes a little further down. Once the Jupyterlab server starts it will print a *token*, a long 
+instance is to start a 'quiet' Jupyterlab session. There will not initially be a browser interface;
+that comes a little further down. Once the Jupyterlab server starts it will print a *token*, a long
 string of letters and numbers used to authenticate; so be prepared to copy that to a text editor
-for a few minutes. 
- 
+for a few minutes.
+
 
 9. On your computer: Open a `bash` shell and ensure the keypair file `hedylamarr.pem` is present in your working directory.
 Issue a `chmod` command to give the keypair file limited `rwx` permissions: `chmod 400 hedylamarr.pem`.
 
 
-> If running **Windows** on your local computer: You may need to install or enable the native `bash` shell. 
+> If running **Windows** on your local computer: You may need to install or enable the native `bash` shell.
 As an alternative you can install an **Ubuntu** `bash` shell. In either case it is useful to realize that
-the *home directoy* of this shell is not the same location as the Windows User home directory. 
-If `hedylamarr.pem` was downloaded to `C:\\Users\hedylamarr\Downloads`:  Move it to your `bash` home 
-directory, for example using this sequence of commands: 
+the *home directoy* of this shell is not the same location as the Windows User home directory.
+If `hedylamarr.pem` was downloaded to `C:\\Users\hedylamarr\Downloads`:  Move it to your `bash` home
+directory, for example using this sequence of commands:
 
 
 ```
@@ -452,57 +447,57 @@ bash> chmod 400 hedylamarr.pem
 Files in the Windows User area are not amenable to `chmod`; so we relocate this file and proceed in `bash` from `~`.
 These details can very frustrating so we go to the trouble to elaborate this here.
 
- 
+
 
 10. In bash run `ssh -i hedylamarr.pem ubuntu@12.23.34.45` to connect to your EC2 instance. (Use the correct ip address.)
 Respond `yes` at the prompt to complete the login. Note that your username is `ubuntu` and you have the ability to run
-root commands using `sudo`. 
+root commands using `sudo`.
 
 
-> If you have configured the image using (for example) the tutorial in the `bootstrap` sub-folder: You may wish 
-to spend some time looking around to ensure the instance is configured as expected. For example if there are 
-additional data disks you can check to see these have been mounted properly. 
+> If you have configured the image using (for example) the tutorial in the `bootstrap` sub-folder: You may wish
+to spend some time looking around to ensure the instance is configured as expected. For example if there are
+additional data disks you can check to see these have been mounted properly.
 
 
 11. On the command line of your EC2 instance issue `(jupyter lab --no-browser --port=8889) &`
-After about one minute this command should produce multiple lines of output including a 
+After about one minute this command should produce multiple lines of output including a
 `token string`.
 
- 
+
 ```
 ...token=ae948dc6923848982349fbc48a2938d4958f23409eea427
 ...token=ae948dc6923848982349fbc48a2938d4958f23409eea427
 ```
 
 
-Copy this string to a text editor for later use. 
+Copy this string to a text editor for later use.
 If you lose this token just log on to the instance where it is running and issue `jupyter notebook list` to see it.
 Issue `exit` to log out of your cloud instance.
 
 
-> Note: The Linux structure `(command) &` causes `command` to run as a background job. 
+> Note: The Linux structure `(command) &` causes `command` to run as a background job.
 This allows you to log out of your instance, leaving it to function as a Jupyterlab server.
 
 
 > Note: The above token is used the first time connecting to the Jupyterlab server. It may not
 be used in subsequent sessions but it is worth keeping it around. If it is lost for some reason:
-Re-start the Jupyterlab server on the VM and re-copy the token. 
+Re-start the Jupyterlab server on the VM and re-copy the token.
 
 
-12. In the `bash` shell issue `ssh -N -f -i hedylamarr.pem -L localhost:7005:localhost:8889 ubuntu@12.23.34.45`. 
+12. In the `bash` shell issue `ssh -N -f -i hedylamarr.pem -L localhost:7005:localhost:8889 ubuntu@12.23.34.45`.
 (Make appropriate substitutions.)
 
 
-> This `ssh` command creates an ssh tunnel to the EC2 instance running the Jupyterlab server. 
-You associate a location on your own computer (localhost:7005) with the connection point on the EC2 instance 
+> This `ssh` command creates an ssh tunnel to the EC2 instance running the Jupyterlab server.
+You associate a location on your own computer (localhost:7005) with the connection point on the EC2 instance
 (12.23.34.45:8889). The number trailing the colon, called a port, acts as a qualifier for the connection.
 
 
 13. In your browser address bar type `localhost:7005`. This should change to `localhost:7005/lab?`.
-When prompted for the token paste in the token string you copied earlier. You should now see a 
-Jupyterlab environment. When using the instructional image for this tutorial there should be 
+When prompted for the token paste in the token string you copied earlier. You should now see a
+Jupyterlab environment. When using the instructional image for this tutorial there should be
 a notebook listed on the left called `chlorophyll.ipynb`. You may click on this notebook to open it
-and explore the contents. 
+and explore the contents.
 
 
 #### Idiosyncratic Cloud Notes

@@ -1,10 +1,3 @@
----
-title: Machine Learning
-parent: Design Patterns
-icon: pattern-ml.png
-grand_parent: Technical Resources
----
-
 # Machine Learning in the Cloud
 
 The cloud is particularly well suited to training neural networks (or any other form of ML model); it can provide as much computational power as you need, when you need it, and you pay for only what you use.
@@ -33,10 +26,6 @@ The major pieces of instracture to think about for ML workloads include:
 
 - **Deployment**
 
-    TODO
-
-    See [&sect;Deployment](#deployment) for resources on making your models available to others as a service after they're mature.
-
 ## Guides
 
 ### Notebooks
@@ -55,7 +44,6 @@ There are two routes to go for serving notebooks from the cloud:
 
     - GCP: [Notebooks with Jupyterlab](https://cloud.google.com/notebooks). Google also offers a separate service, [Google Colab](https://colab.research.google.com/notebooks/), which currently has a resource-limited free tier and a more feature-rich pro tier.
 
-    - IBM: TODO
 
 
 - **Virtual Machines**
@@ -72,7 +60,6 @@ There are two routes to go for serving notebooks from the cloud:
 
     - GCP: [Deep Learning VM Image](https://cloud.google.com/deep-learning-vm/docs/)
 
-    - IBM: TODO
 
 
 ### Containers
@@ -87,7 +74,6 @@ Guides:
 
 - GCP: [AI Platform Containers Overview](https://cloud.google.com/ai-platform/training/docs/containers-overview)
 
-- IBM: TODO
 
 
 ### Storage
@@ -102,13 +88,6 @@ Broadly, cloud platforms provide two different kinds of data storage service:
 
     Guides:
 
-    - AWS: TODO
-
-    - Azure: TODO
-
-    - GCP: TODO
-
-    - IBM: TODO
 
 
 - **Object storage**
@@ -116,20 +95,12 @@ Broadly, cloud platforms provide two different kinds of data storage service:
     Object storage services ask you to upload and download files individually through a web API, and don't provide a directory structure to organize those files. The way this generally looks for your work is you initially write a script to upload files from your local machine into object storage en-masse, and then when you want to use said files in the cloud you use a language-specific library to load them.
 
     Although this requires extra work on your part, if you can build it into your workflow you can generally reduce your storage costs by at least a factor of 10.
-    
+
     Guides:
-
-    - AWS: TODO
-
     - Azure: [Azure Blob storage with Python](https://docs.microsoft.com/en-us/azure/developer/python/azure-sdk-example-storage-use)
 
-    - GCP: TODO
 
-    - IBM: TODO
 
-### Deployment
-
-TODO
 
 ## Case Studies
 

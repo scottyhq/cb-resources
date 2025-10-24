@@ -1,0 +1,17 @@
+[workspace]
+channels = ["conda-forge"]
+description = "Repository for CloudBank educational and technical material."
+name = "Cloudbank Educational Resources"
+platforms = ["osx-arm64","linux-64"]
+version = "0.1.0"
+
+[tasks]
+serve='myst start --execute'
+build='myst build --execute --html'
+check-links='myst build --check-links'
+spellcheck='codespell --skip  _build,references.bib'
+
+[dependencies]
+mystmd = ">=1.5.1,<2"
+codespell = ">=2.4.1,<3"
+
